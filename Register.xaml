@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" Width="330">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
