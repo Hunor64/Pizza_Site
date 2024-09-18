@@ -19,6 +19,7 @@ namespace Pizza_Site
     /// </summary>
     public partial class Admin_Panel : Window
     {
+        
         public Admin_Panel()
         {
             InitializeComponent();

@@ -8,10 +8,22 @@
         Title="Admin_Panel" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button Content="Add New Pizza" Click="AddNewPizza_Click"/>
-            <StackPanel x:Name="stkPizzaList">
-                
-            </StackPanel>
+            <Button Content="Add New Pizza" Click="AddNewPizza_Click" Margin="10"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding PizzaList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Padding="10">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
+                                    <TextBlock Text="{Binding Description}" Margin="0,5,0,0"/>
+                                    <TextBlock Text="{Binding Price, StringFormat='Price: {0:C}'}" Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Window>
