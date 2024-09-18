@@ -23,6 +23,12 @@ namespace Pizza_Site
         {
             InitializeComponent();
         }
+        private void Alreadyegistered(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+            Login loginWindow = new();
+            loginWindow.ShowDialog();
+        }
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             string username = txtUsername.Text;

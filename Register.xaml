@@ -27,7 +27,7 @@
 
         <Button Grid.ColumnSpan="2" Grid.Row="2" Content="Register" Click="Register_Click" HorizontalAlignment="Center" Margin="20 10 "/>
 
-        <TextBlock Text="Already have an account? Login!"  Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-20" Foreground="#007ACC"/>
+        <TextBlock Text="Already have an account? Login!"  Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" MouseLeftButtonDown="Alreadyegistered" Margin="-20" Foreground="#007ACC"/>
 
     </Grid>
 </Window>
