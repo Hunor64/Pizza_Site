@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="Admin_Panel" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <Button Content="Add New Pizza" Click="AddNewPizza_Click"/>
+            <StackPanel x:Name="stkPizzaList">
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

@@ -19,10 +19,10 @@ namespace Pizza_Site
     /// </summary>
     public partial class Login : Window
     {
+        bool loginSucsess;
         public Login()
         {
             InitializeComponent();
         }
-
     }
 }
