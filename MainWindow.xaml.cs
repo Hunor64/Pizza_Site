@@ -16,9 +16,20 @@ namespace Pizza_Site
     /// </summary>
     public partial class MainWindow : Window
     {
+        string userName = null;
         public MainWindow()
         {
             InitializeComponent();
+            InitUser();
+        }
+        public void InitUser()
+        {
+            if (userName == null)
+            {
+                Login loginWindow = new();
+                loginWindow.ShowDialog();
+                userName = loginWindow.UserName;
+            }
         }
     }
 }

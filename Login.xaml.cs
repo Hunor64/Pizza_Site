@@ -19,9 +19,16 @@ namespace Pizza_Site
     /// </summary>
     public partial class Login : Window
     {
+        bool loginSucsess;
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void NoAccRegister(object sender, MouseButtonEventArgs e)
+        {
+            Register registerWindow = new();
+            registerWindow.ShowDialog();
         }
     }
 }

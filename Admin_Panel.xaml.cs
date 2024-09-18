@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Pizza_Site
 {
     /// <summary>
-    /// Interaction logic for AdminPanel.xaml
+    /// Interaction logic for Admin_Panel.xaml
     /// </summary>
-    public partial class AdminPanel : Page
+    public partial class Admin_Panel : Window
     {
-        public AdminPanel()
+        public Admin_Panel()
         {
             InitializeComponent();
         }
+
     }
 }

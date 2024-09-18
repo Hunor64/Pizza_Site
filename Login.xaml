@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
-    <Grid>
-        
+        Title="Login" Height="450" Width="350" MinHeight="450" MinWidth="350">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" Width="330">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:" VerticalAlignment="Center" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="100px" x:Name="txtUsername" Margin="10"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:" VerticalAlignment="Center" Margin="10"/>
+        <PasswordBox Grid.Column="1" Grid.Row="1" MinWidth="100px" x:Name="txtPassword" Margin="10" PasswordChar="*"/>
+
+        <Button Grid.ColumnSpan="2" Grid.Row="2" Content="Login" Click="Login_Click" HorizontalAlignment="Center" Margin="20 10 "/>
+
+        <TextBlock Text="No account? Register!" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-20" Foreground="#007ACC" x:Name="NoAccRegister" MouseLeftButtonDown="NoAccRegister"/>
+
     </Grid>
 </Window>
