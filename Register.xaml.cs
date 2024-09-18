@@ -19,9 +19,13 @@ namespace Pizza_Site
     /// </summary>
     public partial class Register : Window
     {
+        List<string> users = new();
+        bool registerSusess;
+
         public Register()
         {
             InitializeComponent();
+            users.Add("admin");
         }
         private void Alreadyegistered(object sender, MouseButtonEventArgs e)
         {
@@ -33,6 +37,24 @@ namespace Pizza_Site
         {
             string username = txtUsername.Text;
             string password = txtPassword.Password;
+            users.FindIndex(x => x == username);
+            if (users.FindIndex(x => x == username) == -1)
+            {
+                if (password.Length > 5)
+                {
+                    registerSusess = true;
+                    users.Add(username);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Password is too short");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Username already found");
+            }
 
         }
     }
