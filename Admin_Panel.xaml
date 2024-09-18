@@ -8,7 +8,7 @@
         Title="Admin_Panel" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button Content="Add New Pizza" Click="AddNewPizza_Click" Margin="10"/>
+            <Button Content="Add New Pizza" Click="Button_Click" Margin="10"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <ItemsControl ItemsSource="{Binding PizzaList}">
                     <ItemsControl.ItemTemplate>

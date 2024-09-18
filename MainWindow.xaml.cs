@@ -28,7 +28,6 @@ namespace Pizza_Site
             {
                 Login loginWindow = new();
                 loginWindow.ShowDialog();
-                userName = loginWindow.UserName;
             }
         }
     }
