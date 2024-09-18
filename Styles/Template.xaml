@@ -3,35 +3,68 @@
                     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
     <Style TargetType="Button" x:Key="ButtonStyle">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="FontSize" Value="10"/>
-        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <!-- Set the default values for the button -->
+
+        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+
+
+        <!-- Set the template for the button -->
+
         <Setter Property="Template">
+
             <Setter.Value>
+
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" 
-                            CornerRadius="6"
-                            BorderBrush="white"
-                            BorderThickness="1 1 1 1">
-                        <Grid Margin=" 3 2" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                              Content="{TemplateBinding Content}"/>
-                        </Grid>
+
+                    <Border 
+
+            Background="{TemplateBinding Background}" 
+
+            BorderBrush="{TemplateBinding BorderBrush}" 
+
+            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <ContentPresenter 
+
+              HorizontalAlignment="Center" 
+
+              VerticalAlignment="Center" 
+
+              Content="{TemplateBinding Content}" />
+
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Setter Property="Background" Value="#e0d2d1"/>
-                            <Setter Property="Foreground" Value="Black"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#555956"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
+
                 </ControlTemplate>
+
             </Setter.Value>
+
         </Setter>
+
+
+        <!-- Set the triggers for the button -->
+
+        <Style.Triggers>
+
+            <Trigger Property="IsMouseOver" Value="True">
+
+                <Setter Property="Background" Value="LightGray" />
+
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="True">
+
+                <Setter Property="Background" Value="DarkGray" />
+
+            </Trigger>
+
+        </Style.Triggers>
+
     </Style>
 </ResourceDictionary>
