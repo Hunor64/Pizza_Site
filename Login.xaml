@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Login" Height="450" Width="350">
+
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="Auto"/>
+
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:"/>
+
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUsername"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:"/>
+
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPassword"/>
+
+        <Button Grid.Column="1" Grid.Row="2" Content="Login" Click="Login_Click"/>
+
     </Grid>
 </Window>
