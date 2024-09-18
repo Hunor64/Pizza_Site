@@ -23,7 +23,7 @@
         <TextBox Grid.Column="1" Grid.Row="0" MinWidth="100px" x:Name="txtUsername" Margin="10"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:" VerticalAlignment="Center" Margin="10"/>
-        <TextBox Grid.Column="1" Grid.Row="1" MinWidth="100px" x:Name="txtPassword" Margin="10"/>
+        <PasswordBox Grid.Column="1" Grid.Row="1" MinWidth="100px" x:Name="txtPassword" Margin="10" PasswordChar="*"/>
 
         <Button Grid.Column="1" Grid.Row="2" Content="Register" Click="Register_Click" HorizontalAlignment="Left" Margin="5,10,0,10"/>
 
