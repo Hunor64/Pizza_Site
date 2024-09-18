@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Pizza_Site.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,6 +21,7 @@ namespace Pizza_Site
         public MainWindow()
         {
             InitializeComponent();
+            PizzaDbConnection connection = new PizzaDbConnection();
             InitUser();
         }
         public void InitUser()
