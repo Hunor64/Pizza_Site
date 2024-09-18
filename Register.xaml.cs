@@ -55,7 +55,14 @@ namespace Pizza_Site
             {
                 MessageBox.Show("Username already found");
             }
+        }
 
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Register_Click(sender, e);
+            }
         }
     }
 }
