@@ -1,4 +1,4 @@
-# Pizza_Site
+# Pizza Weboldal
 
 Csapattagok: Kiss Dániel, Nagy Marcell János, Nagy Hunor József, Papp László Levente <br />
 
