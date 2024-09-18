@@ -23,5 +23,11 @@ namespace Pizza_Site
         {
             InitializeComponent();
         }
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+
+        }
     }
 }

@@ -28,6 +28,7 @@ namespace Pizza_Site
 
         private void NoAccRegister(object sender, MouseButtonEventArgs e)
         {
+            this.Close();
             Register registerWindow = new();
             registerWindow.ShowDialog();
         }
