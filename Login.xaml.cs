@@ -24,5 +24,11 @@ namespace Pizza_Site
         {
             InitializeComponent();
         }
+
+        private void NoAccRegister(object sender, MouseButtonEventArgs e)
+        {
+            Register registerWindow = new();
+            registerWindow.ShowDialog();
+        }
     }
 }
