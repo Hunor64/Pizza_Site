@@ -21,9 +21,11 @@ namespace Pizza_Site
     public partial class Login : Window
     {
         bool loginSucsess;
+        List<string> users = new();
         public Login()
         {
             InitializeComponent();
+            users.Add("admin");
         }
 
         private void NoAccRegister(object sender, MouseButtonEventArgs e)
@@ -36,7 +38,32 @@ namespace Pizza_Site
         {
             string username = txtUsername.Text;
             string password = txtPassword.Password;
+            users.FindIndex(x => x == username);
+            if (users.FindIndex(x => x == username) != -1)
+            {
+                if (users[users.FindIndex(x => x == username)] == password)
+                {
+                    loginSucsess = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Password is incorrect");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Username is not found");
+            }
 
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login_Click(sender, e);
+            }
         }
     }
 }
