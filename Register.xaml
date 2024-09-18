@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Register" Height="450" Width="350">
-    <Grid>
-        
+        Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:" VerticalAlignment="Center" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="100px" x:Name="txtUsername" Margin="10"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:" VerticalAlignment="Center" Margin="10"/>
+        <TextBox Grid.Column="1" Grid.Row="1" MinWidth="100px" x:Name="txtPassword" Margin="10"/>
+
+        <Button Grid.Column="1" Grid.Row="2" Content="Register" Click="Register_Click" HorizontalAlignment="Left" Margin="5,10,0,10"/>
+
     </Grid>
 </Window>
