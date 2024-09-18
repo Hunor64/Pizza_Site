@@ -1,11 +1,11 @@
-# Pizza_Site
+# Pizza Weboldal
 
-Csapattagok: Kiss Dániel, Nagy Marcell János, Nagy Hunor József, Papp László Levente
+Csapattagok: Kiss Dániel, Nagy Marcell János, Nagy Hunor József, Papp László Levente <br />
 
-Feladatok: 
-Kiss Dániel: Rendelőfelület elkészítése
-Nagy Marcell János: Database, 
-Nagy HUnor József: Regisztráció
-Papp László Levente: Kezdőfelület elkészítése
-
-Használathoz kötelező nugget packeg-ek: Microsoft.EntityFrameworkCore.Sqlite, Microsoft.EntityFrameworkCore.Tools, System.Data.SQlite.Core
+Feladatok: <br />
+Kiss Dániel: Rendelőfelület elkészítése <br />
+Nagy Marcell János: Database <br />
+Nagy Hunor József: Regisztráció, Bejelentekzés, Admin panel <br />
+Papp László Levente: Regisztráció, Bejelentekzés<br />
+<br />
+Használathoz kötelező nugget packeg-ek: Microsoft.EntityFrameworkCore.Sqlite, Microsoft.EntityFrameworkCore.Tools
