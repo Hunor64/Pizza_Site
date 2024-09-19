@@ -12,13 +12,13 @@ namespace Pizza_Site.Models
 {
     public class RegistrationService
     {
-        public string RegisterUser(string userName, string userPassword, string userEmail, string userMobileNumber, bool is_Admin)
+        public string RegisterUser(string userName, string userPassword, string userEmail, string userMobileNumber, string userAddress, bool is_Admin)
         {
             try
             {
                 using (var context = new PizzaContext())
                 {
-                    var newUser = new PizzaUsers { User_Name = userName, User_Password = userPassword, User_Email = userEmail, User_MobileNumber = userMobileNumber, Is_Admin = is_Admin};
+                    var newUser = new PizzaUsers { User_Name = userName, User_Password = userPassword, User_Email = userEmail, User_MobileNumber = userMobileNumber,User_Address = userAddress, Is_Admin = is_Admin};
 
                     context.PizzaStore.Add(newUser);
 
