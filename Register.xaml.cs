@@ -44,6 +44,30 @@ namespace Pizza_Site
             string mobileNumber = txtMobileNumber.Text;
             string adress = txtAddress.Text;
             bool isAdmin = false;
+            //Admin Code
+            string adminCode = "0000Admin";
+            #endregion
+            #region Admin Validation
+            //Admin validation
+            if (txtAdminCode.Text != "" && txtAdminCode.Text != adminCode)
+            {
+                CustomMessageBox adminErr = new CustomMessageBox("Error: Not a valid admin code!", "Again", "Proceed with the registration");
+                bool? adminResult = adminErr.ShowDialog();
+
+                MessageBox.Show(adminErr.Result);
+                if (adminResult == true)
+                {
+                    string userAdminChoice = adminErr.Result;
+                    if (userAdminChoice == "Again")
+                    {
+                        return;
+                    }
+                    else if (userAdminChoice == "Proceed with the registration")
+                    {
+                        txtAdminCode.Text = "";
+                    }
+                }
+            }
             #endregion
             #region User Validation
             //Username validation
@@ -85,6 +109,13 @@ namespace Pizza_Site
             }
             #endregion
             #region Register Validation
+
+            //Checking if user is admin
+            if (txtAdminCode.Text == adminCode)
+            {
+                isAdmin = true;
+            }
+
             string registrationResult = registrationService.RegisterUser(username, password, email, mobileNumber, adress ,isAdmin);
 
             if (registrationResult == "Registration successful!")
@@ -98,28 +129,26 @@ namespace Pizza_Site
             }
             else if (registrationResult == $"Registration failed: Username '{username}' is already taken.")
             {
-                MessageBox.Show($"Registration failed: Username '{username}' is already taken.");
                 this.Close();
-                CustomMessageBox failedRegister = new CustomMessageBox("Registration Failed! Do you want to Log in or you want to create another account?", "Log in", "Register another account");
+                CustomMessageBox failedRegister = new CustomMessageBox("Registration failed: Username '{username}' is already taken! \nDo you want to Log in or you want to create another account?", "Log in", "Register another account");
                 bool? result = failedRegister.ShowDialog();
 
                 if (result == true)
                 {
                     string userChoice = failedRegister.Result;
-                    if (userChoice == "Login")
+                    if (userChoice == "Log in")
                     {
                         this.Close();
                         Login loginWindow = new Login();
                         loginWindow.ShowDialog();
                     }
-                    else if (userChoice == "Register")
+                    else if (userChoice == "Register another account")
                     {
                         this.Close();
                         Register registerWindow = new Register();
                         registerWindow.ShowDialog();
                     }
                 }
-
             }
             else
             {

@@ -54,12 +54,10 @@ namespace Pizza_Site
                     {
                         string userChoice = LoginErr.Result;
 
-                        //Redirects you to the login page
+                        //You stay on the login page
                         if (userChoice == "Try Again")
                         {
-                            this.Close();
-                            Login loginWindow = new Login();
-                            loginWindow.ShowDialog();
+                            return;
                         }
                         //Redirects you to the register page
                         else if (userChoice == "Register")

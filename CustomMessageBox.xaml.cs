@@ -36,14 +36,14 @@ namespace Pizza_Site
         #region Button clicks
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Result = "Login";
+            Result = btnLogin.Content.ToString();
             this.DialogResult = true;
             this.Close();
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            Result = "Register";
+            Result = btnRegister.Content.ToString();
             this.DialogResult = true;
             this.Close();
         }

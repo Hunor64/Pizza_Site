@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="#4b4b4b">
     
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="330">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="330" Width="330">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -15,6 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -38,9 +39,12 @@
         <TextBlock Grid.Column="0" Grid.Row="4" Text="Address:" Style="{StaticResource InputMarkerTextblockStyle}"/>
         <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtAddress" Style="{StaticResource TextBoxStyle}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.ColumnSpan="2" Grid.Row="5" Content="Register" Click="Register_Click"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Admin Code:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="5"  x:Name="txtAdminCode" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Text="Already have an account? Login!"  Grid.Row="5" Grid.ColumnSpan="2" MouseLeftButtonDown="AlreadyRegistered"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.ColumnSpan="2" Grid.Row="6" Content="Register" Margin="0 10 0 0" Click="Register_Click"/>
+
+        <TextBlock Style="{StaticResource TextBlockStyle}" Text="Already have an account? Login!"  Grid.Row="6" Grid.ColumnSpan="2" MouseLeftButtonDown="AlreadyRegistered"/>
 
     </Grid>
 </Window>
