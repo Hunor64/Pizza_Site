@@ -1,0 +1,11 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 250,
+            "driver": "SQLite",
+            "name": "PizzaStore",
+            "database": "${workspaceFolder:Database}/PizzaStore.db"
+        }
+    ]
+}
