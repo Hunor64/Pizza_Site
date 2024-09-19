@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Pizza_Site.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
+using System.Data.SQLite;
 
 namespace Pizza_Site
 {
@@ -21,11 +25,42 @@ namespace Pizza_Site
     public partial class Login : Window
     {
         bool loginSucsess;
-        List<string> users = new();
+        public void ReadDatabase()
+        {
+            using (var newContext = new PizzaContext())
+            {
+                var users = newContext.PizzaStore.ToList();
+
+
+                foreach (var user in users)
+                {
+                    string username = txtUsername.Text;
+                    string password = txtPassword.Password;
+                    users.FindIndex(x => x.User_Name.ToString() == username);
+                    if (users.FindIndex(x => x.User_Name.ToString() == username) != -1)
+                    {
+                        if (users.FindIndex(x => x.User_Password.ToString() == password) != -1)
+                        {
+                            loginSucsess = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password is incorrect");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username is not found");
+                    }
+                }
+            }
+        }
+
+        
         public Login()
         {
             InitializeComponent();
-            users.Add("admin");
         }
 
         private void NoAccRegister(object sender, MouseButtonEventArgs e)
@@ -36,25 +71,8 @@ namespace Pizza_Site
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Password;
-            users.FindIndex(x => x == username);
-            if (users.FindIndex(x => x == username) != -1)
-            {
-                if (users[users.FindIndex(x => x == username)] == password)
-                {
-                    loginSucsess = true;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Password is incorrect");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Username is not found");
-            }
+            
+            ReadDatabase();
 
         }
 
