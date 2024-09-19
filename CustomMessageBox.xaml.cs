@@ -27,6 +27,7 @@ namespace Pizza_Site
         public CustomMessageBox(string message, string button1Text, string button2Text)
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             MessageTextBlock.Text = message;
             btnLogin.Content = button1Text;
             btnRegister.Content = button2Text;

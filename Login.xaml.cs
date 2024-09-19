@@ -101,6 +101,7 @@ namespace Pizza_Site
         public Login()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void NoAccRegister(object sender, MouseButtonEventArgs e)

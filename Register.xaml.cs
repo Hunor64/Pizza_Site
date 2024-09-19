@@ -25,6 +25,7 @@ namespace Pizza_Site
         public Register()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
         private void AlreadyRegistered(object sender, MouseButtonEventArgs e)
         {

@@ -21,6 +21,7 @@ namespace Pizza_Site
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             PizzaDbConnection connection = new PizzaDbConnection();
             InitUser();
         }
