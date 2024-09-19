@@ -59,21 +59,37 @@
         </Style.Triggers>
     </Style>
     
-    <!-- INPUT MARKER TEXTBLOCK -->
+    <!-- INPUT MARKER TEXTBLOCK STYLE -->
     
-    <Style TargetType="TextBlock" x:Key="InputMarkerTextblock">
+    <Style TargetType="TextBlock" x:Key="InputMarkerTextblockStyle">
 
         <Setter Property="Foreground" Value="WhiteSmoke" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="5" />
-        <Setter Property="Margin" Value="-30"/>
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="20"/>
+        
+    </Style>
+    
+    <!-- TEXTBOX STYLE -->
+    <Style TargetType="TextBox" x:Key="TextBoxStyle">
+
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
+        <Setter Property="MinWidth" Value="100"/>
 
-       
+    </Style>
+
+    <!-- PASSWORDBOX STYLE -->
+    <Style TargetType="PasswordBox" x:Key="PasswordBoxStyle">
+
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="MinWidth" Value="100"/>
+
     </Style>
 
 </ResourceDictionary>
