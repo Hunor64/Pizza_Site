@@ -10,8 +10,11 @@ namespace Pizza_Site.Models
     public class PizzaContext : DbContext
     {
         public DbSet<PizzaUsers> PizzaStore { get; set; }
-        public string ConnectionString = "Data Source=PizzaStore.db";
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite(ConnectionString);
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PizzaStore.db");
+            options.UseSqlite($"Data Source={dbPath}");
+        }
     }
 }
