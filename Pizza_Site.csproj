@@ -24,4 +24,10 @@
     <Folder Include="Database\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Styles\Images\pngegg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

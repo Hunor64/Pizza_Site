@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="#4b4b4b">
+    
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="330">
 
         <Grid.ColumnDefinitions>
@@ -22,20 +23,20 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:" VerticalAlignment="Center" Margin="10" Foreground="WhiteSmoke"/>
-        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="100px" x:Name="txtUsername" Margin="10"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUsername" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:" VerticalAlignment="Center" Margin="10" Foreground="WhiteSmoke"/>
-        <PasswordBox Grid.Column="1" Grid.Row="1" MinWidth="100px" x:Name="txtPassword" Margin="10" PasswordChar="*" KeyDown="txtPassword_KeyDown"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <PasswordBox Grid.Column="1" Grid.Row="1"  x:Name="txtPassword"  PasswordChar="*" KeyDown="txtPassword_KeyDown" Style="{StaticResource PasswordBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Email:" VerticalAlignment="Center" Margin="10" Foreground="WhiteSmoke"/>
-        <TextBox Grid.Column="1" Grid.Row="2" MinWidth="100px" x:Name="txtEmail" Margin="10"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Email:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="2"  x:Name="txtEmail" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="Mobile:" VerticalAlignment="Center" Margin="10" Foreground="WhiteSmoke"/>
-        <TextBox Grid.Column="1" Grid.Row="3" MinWidth="100px" x:Name="txtMobileNumber" Margin="10"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Mobile:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtMobileNumber" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" Text="Address:" VerticalAlignment="Center" Margin="10" Foreground="WhiteSmoke"/>
-        <TextBox Grid.Column="1" Grid.Row="4" MinWidth="100px" x:Name="txtAddress" Margin="10"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Address:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtAddress" Style="{StaticResource TextBoxStyle}"/>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.ColumnSpan="2" Grid.Row="5" Content="Register" Click="Register_Click"/>
 
