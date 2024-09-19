@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pizza_Site.Models
 {
+    //Pizza user properties
     public class PizzaUsers
     {
         [Key]

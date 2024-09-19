@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Pizza_Site
 {
-    /// <summary>
-    /// Interaction logic for Admin_Panel.xaml
-    /// </summary>
     public partial class Admin_Panel : Window
     {
         

@@ -18,9 +18,11 @@ namespace Pizza_Site.Models
 
         public PizzaDbConnection()
         {
+            //Still junky
             string dbPath = System.IO.Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName).FullName + "\\Database", "PizzaStore.db");
             string connectionString = $"Data Source={dbPath}";
 
+            //Connecting to our database
             sqlite_conn = new SQLiteConnection(connectionString);
             sqlite_conn.Open();
         }

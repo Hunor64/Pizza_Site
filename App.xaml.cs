@@ -11,12 +11,15 @@ namespace Pizza_Site
     /// </summary>
     public partial class App : Application
     {
+        #region Database Update on start
+        //Updating database on start-up
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             UpdateDatabase();
         }
 
+        //Database updating logic
         private void UpdateDatabase()
         {
             try
@@ -31,6 +34,7 @@ namespace Pizza_Site
                 MessageBox.Show($"Database update failed: {ex.Message}");
             }
         }
+        #endregion
     }
 
 }

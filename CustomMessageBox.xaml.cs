@@ -19,8 +19,11 @@ namespace Pizza_Site
     /// </summary>
     public partial class CustomMessageBox : Window
     {
+        #region Input result data
+        //Getting the result
         public string Result { get; private set; }
 
+        //Passing data to the pop-up window
         public CustomMessageBox(string message, string button1Text, string button2Text)
         {
             InitializeComponent();
@@ -28,8 +31,9 @@ namespace Pizza_Site
             btnLogin.Content = button1Text;
             btnRegister.Content = button2Text;
         }
+        #endregion
 
-
+        #region Button clicks
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Result = "Login";
@@ -43,6 +47,7 @@ namespace Pizza_Site
             this.DialogResult = true;
             this.Close();
         }
+        #endregion
     }
 }
 

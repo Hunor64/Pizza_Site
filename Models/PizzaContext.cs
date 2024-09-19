@@ -15,6 +15,7 @@ namespace Pizza_Site.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
+            //Getting the path to our 'Database' folder (bit junky)
             string dbPath = System.IO.Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName).FullName + "\\Database" ,"PizzaStore.db");
             options.UseSqlite($"Data Source={dbPath}");
         }

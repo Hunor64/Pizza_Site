@@ -17,18 +17,18 @@ namespace Pizza_Site
 {
     public partial class Register : Window
     {
+        #region Variables
         List<string> users = new();
         bool registerSuccess;
         RegistrationService registrationService = new RegistrationService();
-
+        #endregion
         public Register()
         {
             InitializeComponent();
-            users.Add("admin");
         }
-
         private void AlreadyRegistered(object sender, MouseButtonEventArgs e)
         {
+            //Already registered button click (see Login.xaml)
             this.Close();
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
@@ -36,28 +36,42 @@ namespace Pizza_Site
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
+            #region User Variables
+            //Pass values to the user variables
             string username = txtUsername.Text;
             string password = txtPassword.Password;
             string email = txtEmail.Text;
             string mobileNumber = txtMobileNumber.Text;
             string adress = txtAddress.Text;
             bool isAdmin = false;
-
-            //variables
-
-
-            if (password.Length < 5)
+            #endregion
+            #region User Validation
+            //Username validation
+            var upper = username.Any(char.IsUpper);
+            var numeric = username.Any(char.IsDigit);
+            if (!(upper && numeric))
             {
-                MessageBox.Show("Error: Password is too short! It must be at least 5 characters.");
+                MessageBox.Show("Error: Not a valid username! It must contain at least 1 uppercase letter and 1 number!");
                 return;
             }
 
+            //Password validation
+            upper = password.Any(char.IsUpper);
+            numeric = password.Any(char.IsDigit);
+            if (password.Length < 5 || !(upper && numeric))
+            {
+                MessageBox.Show("Error: Password is too short! It must be at least 5 characters and must contain a number and an upper case letter!");
+                return;
+            }
+
+            //Email validation
             if (!(email.Contains('@')) ||!(email.Contains('.')))
             {
                 MessageBox.Show("Error: Not a valid E-mail address! It must contain '@' and '.'!");
                 return;
             }
 
+            //Mobile number validation
             if (!(mobileNumber.Length == 11))
             {
                 MessageBox.Show("Error: Not a valid mobile number! It must be EXACTLY 11 Characters!");
@@ -69,15 +83,8 @@ namespace Pizza_Site
                 MessageBox.Show("Error: Not a valid mobile number! It must contain only numbers!");
                 return;
             }
-
-            var upper = username.Any(char.IsUpper);
-            var numeric = username.Any(char.IsDigit);
-            if (!(upper && numeric))
-            {
-                MessageBox.Show("Error: Not a valid username! It must contain at least 1 uppercase letter and 1 number!");
-                return;
-            }
-
+            #endregion
+            #region Register Validation
             string registrationResult = registrationService.RegisterUser(username, password, email, mobileNumber, adress ,isAdmin);
 
             if (registrationResult == "Registration successful!")
@@ -119,13 +126,13 @@ namespace Pizza_Site
                 MessageBox.Show(registrationResult);
             }
         }
-
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
                 Register_Click(sender, e);
             }
+        #endregion
         }
     }
 }

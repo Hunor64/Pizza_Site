@@ -19,45 +19,87 @@ using System.Data.SQLite;
 
 namespace Pizza_Site
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
     public partial class Login : Window
     {
-        bool loginSucsess;
+        #region Reads Db and Login click logic
+        //Reads the Database
         public void ReadDatabase()
         {
             using (var newContext = new PizzaContext())
             {
+                #region Variables
+                //Users list filled from the database
                 var users = newContext.PizzaStore.ToList();
 
+                //Username
+                string username = txtUsername.Text;
 
+                //Password
+                string password = txtPassword.Password;
+
+                //Checks if the login is successful
+                bool loginSucsess;
+                #endregion
+
+                #region Custom MessageBox logic
+                //Custom messagebox pop-up logic
+                if (users.FindIndex(x => x.User_Name.ToString() == username) == -1)
+                {
+                    //Creates new custom message box element
+                    CustomMessageBox LoginErr = new CustomMessageBox("Username not Found!", "Try Again", "Register" );
+                    bool? result = LoginErr.ShowDialog();
+
+                    //Decide which option was selected
+                    if (result == true)
+                    {
+                        string userChoice = LoginErr.Result;
+
+                        //Redirects you to the login page
+                        if (userChoice == "Try Again")
+                        {
+                            this.Close();
+                            Login loginWindow = new Login();
+                            loginWindow.ShowDialog();
+                        }
+                        //Redirects you to the register page
+                        else if (userChoice == "Register")
+                        {
+                            this.Close();
+                            Register registerWindow = new Register();
+                            registerWindow.ShowDialog();
+                        }
+                    }
+                }
+                #endregion
+
+                #region Login validation
+                //Checks if there is possible to log in with those data's
                 foreach (var user in users)
                 {
-                    string username = txtUsername.Text;
-                    string password = txtPassword.Password;
-                    users.FindIndex(x => x.User_Name.ToString() == username);
+                    //Finds if the username exists in the database
                     if (users.FindIndex(x => x.User_Name.ToString() == username) != -1)
                     {
+                        //Checks if the password is correct
                         if (users.FindIndex(x => x.User_Password.ToString() == password) != -1)
                         {
+                            //Logins if success
                             loginSucsess = true;
                             this.Close();
                         }
                         else
                         {
+                            //Shows error if not
                             MessageBox.Show("Password is incorrect");
+                            return;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Username is not found");
-                    }
                 }
+                #endregion
             }
         }
+        #endregion
 
-        
+        #region Login, NoAccRegister, Login_Click, txtPassword_Keydown functions
         public Login()
         {
             InitializeComponent();
@@ -65,23 +107,24 @@ namespace Pizza_Site
 
         private void NoAccRegister(object sender, MouseButtonEventArgs e)
         {
+            //Redirect you to the register page if no account is registered
             this.Close();
             Register registerWindow = new();
             registerWindow.ShowDialog();
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            
+            //Login Validation and custom messagebox logic
             ReadDatabase();
-
         }
-
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
+            //Password secure
             if (e.Key == Key.Enter)
             {
                 Login_Click(sender, e);
             }
         }
+        #endregion
     }
 }
