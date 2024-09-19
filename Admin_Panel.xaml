@@ -8,8 +8,37 @@
         Title="Admin_Panel" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            
-                <Button Content="Add New Pizza" Click="Button_Click" Margin="10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200px"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label>Pizza Név</Label>
+                <Label Grid.Row="1">Ár</Label>
+                <Label Grid.Row="2">Leírás</Label>
+                <Label Grid.Row="3">Kép</Label>
+                <Label Grid.Row="4">Kategória</Label>
+                <Label Grid.Row="5">Méret</Label>
+                <TextBox x:Name="txtPizzaName" Grid.Column="1"/>
+                <TextBox x:Name="txtPrice" Grid.Row="1" Grid.Column="1"/>
+                <TextBox x:Name="txtDescription" Grid.Row="2" Grid.Column="1"/>
+                <TextBox x:Name="txtImage" Grid.Row="3" Grid.Column="1"/>
+                <ComboBox x:Name="cmbCategory" Grid.Row="4" Grid.Column="1"/>
+                <ComboBox x:Name="cmbSize" Grid.Row="5" Grid.Column="1"/>
+
+            </Grid>
+            <Button Content="Add New Pizza" Click="Button_Click" Margin="10"/>
+
         </StackPanel>
     </Grid>
 </Window>
