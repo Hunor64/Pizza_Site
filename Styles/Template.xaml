@@ -6,8 +6,6 @@
 
     <Style TargetType="Button" x:Key="ButtonStyle">
         
-        <!-- Set the default values for the button -->
-
         <Setter Property="Foreground" Value="WhiteSmoke" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="5" />
@@ -15,8 +13,6 @@
         <Setter Property="Width" Value="100"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="FontFamily" Value="Arial"/>
-
-        <!-- Set the template for the button -->
 
         <Setter Property="Template">
             <Setter.Value>
@@ -45,8 +41,6 @@
     
     <Style TargetType="TextBlock" x:Key="TextBlockStyle">
 
-        <!-- Set the default values for the button -->
-
         <Setter Property="Foreground" Value="#007ACC" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="5" />
@@ -57,8 +51,6 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
 
-        <!-- Set the triggers for the button -->
-
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="DeepSkyBlue"/>
@@ -67,4 +59,21 @@
         </Style.Triggers>
     </Style>
     
+    <!-- INPUT MARKER TEXTBLOCK -->
+    
+    <Style TargetType="TextBlock" x:Key="InputMarkerTextblock">
+
+        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Margin" Value="-30"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="15"/>
+
+       
+    </Style>
+
 </ResourceDictionary>
