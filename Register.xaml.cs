@@ -43,23 +43,40 @@ namespace Pizza_Site
             string adress = txtAddress.Text;
             bool isAdmin = false;
 
+            //variables
+
+
             if (password.Length < 5)
             {
                 MessageBox.Show("Error: Password is too short! It must be at least 5 characters.");
                 return;
             }
+
             if (!(email.Contains('@')) ||!(email.Contains('.')))
             {
                 MessageBox.Show("Error: Not a valid E-mail address! It must contain '@' and '.'!");
                 return;
             }
+
             if (!(mobileNumber.Length == 11))
             {
                 MessageBox.Show("Error: Not a valid mobile number! It must be EXACTLY 11 Characters!");
                 return;
             }
+            var isNumeric = mobileNumber.All(char.IsDigit);
+            if (!isNumeric)
+            {
+                MessageBox.Show("Error: Not a valid mobile number! It must contain only numbers!");
+                return;
+            }
 
-
+            var upper = username.Any(char.IsUpper);
+            var numeric = username.Any(char.IsDigit);
+            if (!(upper && numeric))
+            {
+                MessageBox.Show("Error: Not a valid username! It must contain at least 1 uppercase letter and 1 number!");
+                return;
+            }
 
             string registrationResult = registrationService.RegisterUser(username, password, email, mobileNumber, adress ,isAdmin);
 
