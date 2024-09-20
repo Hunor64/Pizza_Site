@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <None Remove="Logo\PizzastoreLogo.png" />
+    <None Remove="Logo\shopping-cart.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,9 @@
 
   <ItemGroup>
     <Resource Include="Logo\PizzastoreLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Logo\shopping-cart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

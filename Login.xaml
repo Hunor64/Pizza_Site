@@ -4,11 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        ResizeMode="NoResize"
         Title="Login" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="LightSkyBlue">
 
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" Width="330">
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -21,9 +24,15 @@
         </Grid.RowDefinitions>
 
         <Image Source="/Pizza_Site;component/Logo/PizzastoreLogo.png"
-            HorizontalAlignment="Left" VerticalAlignment="Top"
-            Width="266" Height="139" Margin="96,-139,0,0" Grid.ColumnSpan="2"/>
-
+            HorizontalAlignment="Left"
+            Width="266" Height="139" Margin="96,-145,0,36" Grid.ColumnSpan="2"/>
+        <!-- Custom title bar start -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,-140,-5,150">
+            <Button x:Name="btnMinimize" Content="_" BorderBrush="Black" Background="PaleVioletRed" Width="30" Height="30" Click="btnMinimize_Click"></Button>
+            <Button x:Name="btnMaximize" Content="🗖" BorderBrush="Black" Background="PaleVioletRed" Width="30" Height="30" Click="btnMaximize_Click"></Button>
+            <Button x:Name="btnClose" Content="X" BorderBrush="Black" Background="PaleVioletRed" Width="30" Height="30" Click="btnClose_Click"></Button>
+        </StackPanel>
+        <!-- Custom title bar end -->
 
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:" Style="{StaticResource InputMarkerTextblockStyle}"/>
         <TextBox Grid.Column="1" Grid.Row="0"  x:Name="txtUsername" Style="{StaticResource TextBoxStyle}"/>
