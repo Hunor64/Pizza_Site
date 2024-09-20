@@ -95,6 +95,11 @@ namespace Pizza_Site
                 MessageBox.Show("Error: Not a valid E-mail address! It must contain '@' and '.'!");
                 return;
             }
+            if (email.IndexOf("@") > email.IndexOf("."))
+            {
+                MessageBox.Show("Error: Not a valid E-mail address! The '.' cant exists before the '@'!");
+                return;
+            }
 
             //Mobile number validation
             if (!(mobileNumber.Length == 11))
