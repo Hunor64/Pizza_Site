@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="#4b4b4b">
+        Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="LightSkyBlue">
     
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="330" Width="330">
 

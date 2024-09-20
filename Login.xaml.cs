@@ -132,5 +132,11 @@ namespace Pizza_Site
             }
         }
         #endregion
+
+      
+        private void txbClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -5,8 +5,8 @@
     <!-- BUTTON STYLE -->
 
     <Style TargetType="Button" x:Key="ButtonStyle">
-        
-        <Setter Property="Foreground" Value="WhiteSmoke" />
+
+        <Setter Property="Foreground" Value="Black" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Cursor" Value="Hand" />
@@ -17,7 +17,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="WhiteSmoke" BorderThickness="1" CornerRadius="5">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
                     </Border>
                 </ControlTemplate>
@@ -41,7 +41,7 @@
     
     <Style TargetType="TextBlock" x:Key="TextBlockStyle">
 
-        <Setter Property="Foreground" Value="#007ACC" />
+        <Setter Property="Foreground" Value="BlueViolet" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="-30"/>
@@ -50,10 +50,11 @@
         <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                <Setter Property="Foreground" Value="Black"/>
                 <Setter Property="TextDecorations" Value="Underline"/>
             </Trigger>
         </Style.Triggers>
@@ -63,7 +64,7 @@
     
     <Style TargetType="TextBlock" x:Key="InputMarkerTextblockStyle">
 
-        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Foreground" Value="Black" />
         <Setter Property="Margin" Value="10"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -102,7 +103,7 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
-        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Foreground" Value="Black" />
 
     </Style>
     
@@ -114,9 +115,22 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
-        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Foreground" Value="Black" />
         
 
     </Style>
     
+    <!-- GRIDVIEW STYLE -->
+
+    <Style TargetType="GridViewColumnHeader" x:Key="GridViewColumnHeaderStyle">
+
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="LightSkyBlue"/>
+       
+    </Style>
+
 </ResourceDictionary>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#4b4b4b">
+        Title="MainWindow" Height="450" Width="800" Background="LightSkyBlue">
     <Grid>
         <Grid>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -13,7 +13,7 @@
                     <StackPanel x:Name="MainPanel" Visibility="Visible">
                         <ListView Name="PizzaListView" ItemsSource="{Binding Pizzas}">
                             <ListView.View>
-                                <GridView>
+                                <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
                                     <GridViewColumn Header="Pizza">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

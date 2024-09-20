@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="#4b4b4b">
-   
+        Title="Login" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="LightSkyBlue">
+
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" Width="330">
         <Grid.ColumnDefinitions>
@@ -20,7 +20,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-      
         <Image Source="/Pizza_Site;component/Logo/PizzastoreLogo.png"
             HorizontalAlignment="Left" VerticalAlignment="Top"
             Width="266" Height="139" Margin="96,-139,0,0" Grid.ColumnSpan="2"/>
