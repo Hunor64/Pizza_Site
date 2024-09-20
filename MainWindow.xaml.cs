@@ -12,18 +12,15 @@ using System.Windows.Shapes;
 
 namespace Pizza_Site
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         string userName = null;
         public MainWindow()
         {
+            InitUser();
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             PizzaDbConnection connection = new PizzaDbConnection();
-            InitUser();
         }
         public void InitUser()
         {
@@ -31,6 +28,7 @@ namespace Pizza_Site
             {
                 Login loginWindow = new();
                 loginWindow.ShowDialog();
+                
             }
         }
     }

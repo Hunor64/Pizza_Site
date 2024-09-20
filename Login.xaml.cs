@@ -81,9 +81,15 @@ namespace Pizza_Site
                         if (users.FindIndex(x => x.User_Password.ToString() == password) != -1)
                         {
                             //Logins if success
-                            loginSucsess = true;
                             this.Close();
+                            loginSucsess = true;
+                            if (loginSucsess)
+                            {
+                                loginSucsess = true;
+                                this.Close();
+                            }
                         }
+
                         else
                         {
                             //Shows error if not
@@ -92,6 +98,7 @@ namespace Pizza_Site
                         }
                     }
                 }
+
                 #endregion
             }
         }

@@ -11,14 +11,14 @@ namespace Pizza_Site
     /// </summary>
     public partial class App : Application
     {
-        #region Database Update on start
-        //Updating database on start-up
+        //Updating database and preventing main window pop up on start-up
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             UpdateDatabase();
         }
 
+        #region Database Update on start
         //Database updating logic
         private void UpdateDatabase()
         {
@@ -35,6 +35,7 @@ namespace Pizza_Site
             }
         }
         #endregion
-    }
 
+    }
 }
+
