@@ -37,7 +37,8 @@ namespace Pizza_Site
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             PizzaDbConnection connection = new PizzaDbConnection();
             InitializeComponent();
-            LoadPizzaList();
+            LoadPizzaListFromDb();
+            //LoadPizzaList();
             cart = new ObservableCollection<CartItem>();
             CartListView.ItemsSource = cart;
         }
@@ -56,6 +57,22 @@ namespace Pizza_Site
             public int Quantity { get; set; }
             public int UnitPrice { get; set; }
             public int TotalPrice => Quantity * UnitPrice;
+        }
+
+        public void LoadPizzaListFromDb() 
+        {
+            using (var newContext = new PizzaContext())
+            {
+                List<Pizza> pizzaList = new List<Pizza>();
+                var pizzas = newContext.PizzasDescription.ToList();
+
+
+                foreach (var pizza in pizzas)
+                {
+                    pizzaList.Add(new Pizza {Name = pizza.PizzaName, ImagePath = $"\\images\\{pizza.ImagePath}", Ingredients = pizza.Ingredients, Price = pizza.Price });
+                }
+                PizzaListView.ItemsSource = pizzaList;
+            }
         }
 
         private void LoadPizzaList()
