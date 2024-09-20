@@ -7,6 +7,76 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#4b4b4b">
     <Grid>
+        <Grid>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <StackPanel x:Name="MainPanel" Visibility="Visible">
+                        <ListView Name="PizzaListView" ItemsSource="{Binding Pizzas}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Pizza">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <Image Source="{Binding ImagePath}" Width="100" Height="100" Margin="5"/>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
+                                                        <TextBlock Text="{Binding Ingredients}" FontStyle="Italic" FontSize="12" Foreground="Gray"/>
+                                                        <TextBlock Text="{Binding Price, StringFormat={}{0} Ft}" FontWeight="Bold" FontSize="14" Margin="0,5,0,0"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
+                                    <GridViewColumn Header="Mennyiség">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBox Width="50" Text="1" Margin="5"/>
+                                                    <Button Content="Rendelés" Tag="{Binding}" Click="OrderButton_Click" Width="75" Margin="5"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel x:Name="CartPanel" Visibility="Collapsed">
+                        <Button Content="Vissza" Click="BackToMain_Click" Width="100" HorizontalAlignment="Left" />
+                        <ListView Name="CartListView">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Pizza" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                                    <GridViewColumn Header="Mennyiség">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBox Width="50" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
+                                                 TextChanged="QuantityTextBox_TextChanged"/>
+                                                    <Button Content="Törlés" Tag="{Binding}" Click="RemoveButton_Click" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Ár" DisplayMemberBinding="{Binding TotalPrice, StringFormat={}{0} Ft}" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <TextBlock Name="TotalPriceTextBlock" FontWeight="Bold" FontSize="16" HorizontalAlignment="Right" Margin="10"/>
+                        <Button Content="Rendelés véglegesítése" Click="FinalizeOrderButton_Click" Width="200" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+                <Button Name="CartButton" Click="CartButton_Click" Width="50" Height="50">
+                    <StackPanel>
+                        <Image Source="cart_icon.png" Width="30" Height="30" />
+                        <TextBlock Name="CartItemCount" Text="0" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
