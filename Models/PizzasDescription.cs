@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,9 @@ namespace Pizza_Site.Models
 {
     public class PizzasDescription
     {
-        [Key]
-        public int pizzaId { get; set; }
-        public string? pizzaName { get; set; }
-        public string[]? ingredients { get; set; }
-        public int price { get; set; }
-        public string? imagePath { get; set; }
+        [Key] public string? PizzaName { get; set; }
+        public string? Ingredients { get; set; }
+        public int Price { get; set; }
+        public string? ImagePath { get; set; }
     }
 }

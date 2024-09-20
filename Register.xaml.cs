@@ -136,7 +136,7 @@ namespace Pizza_Site
             else if (registrationResult == $"Registration failed: Username '{username}' is already taken.")
             {
                 this.Close();
-                CustomMessageBox failedRegister = new CustomMessageBox("Registration failed: Username '{username}' is already taken! \nDo you want to Log in or you want to create another account?", "Log in", "Register another account");
+                CustomMessageBox failedRegister = new CustomMessageBox($"Registration failed: Username '{username}' is already taken! \nDo you want to Log in or you want to create another account?", "Log in", "Register another account");
                 bool? result = failedRegister.ShowDialog();
 
                 if (result == true)
