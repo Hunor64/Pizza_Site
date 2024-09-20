@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         Title="Registration" Height="450" Width="350" MinHeight="450" MinWidth="350" Background="LightSkyBlue">
     
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="330" Width="330">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="330">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -16,6 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -26,34 +27,34 @@
         </Grid.RowDefinitions>
 
         <!-- Custom title bar start -->
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,-60,-5,60">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1">
             <Button x:Name="btnMinimize" Content="_" BorderBrush="Black" Background="PaleVioletRed" Width="30" Height="30" Click="btnMinimize_Click"></Button>
             <Button x:Name="btnMaximize" Content="🗖" BorderBrush="Black" Background="PaleVioletRed" Width="30" Height="30" Click="btnMaximize_Click"></Button>
             <Button x:Name="btnClose" Content="X" BorderBrush="Black" Background="PaleVioletRed" Width="30" Height="30" Click="btnClose_Click"></Button>
         </StackPanel>
         <!-- Custom title bar end -->
 
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="Username:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUsername" Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Username:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtUsername" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Password:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-        <PasswordBox Grid.Column="1" Grid.Row="1"  x:Name="txtPassword"  PasswordChar="*" KeyDown="txtPassword_KeyDown" Style="{StaticResource PasswordBoxStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Password:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <PasswordBox Grid.Column="1" Grid.Row="2"  x:Name="txtPassword"  PasswordChar="*" KeyDown="txtPassword_KeyDown" Style="{StaticResource PasswordBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Email:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-        <TextBox Grid.Column="1" Grid.Row="2"  x:Name="txtEmail" Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Email:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="3"  x:Name="txtEmail" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="Mobile:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-        <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtMobileNumber" Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Mobile:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtMobileNumber" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" Text="Address:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-        <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtAddress" Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Address:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="txtAddress" Style="{StaticResource TextBoxStyle}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="5" Text="Admin Code:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-        <TextBox Grid.Column="1" Grid.Row="5"  x:Name="txtAdminCode" Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Admin Code:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="6"  x:Name="txtAdminCode" Style="{StaticResource TextBoxStyle}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.ColumnSpan="2" Grid.Row="6" Content="Register" Margin="0 10 0 0" Click="Register_Click"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.ColumnSpan="2" Grid.Row="7" Content="Register" Margin="0 10 0 0" Click="Register_Click"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Text="Already have an account? Login!"  Grid.Row="6" Grid.ColumnSpan="2" MouseLeftButtonDown="AlreadyRegistered"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Text="Already have an account? Login!"  Grid.Row="7" Grid.ColumnSpan="2" MouseLeftButtonDown="AlreadyRegistered"/>
 
     </Grid>
 </Window>

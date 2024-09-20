@@ -182,8 +182,17 @@ namespace Pizza_Site
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Maximized)
+            {
                 WindowState = WindowState.Normal;
-            else WindowState = WindowState.Maximized;
+                Register.GetWindow(this).Width = 350;
+                Register.GetWindow(this).Height = 450;
+            }
+            else if (WindowState == WindowState.Normal) 
+            {
+                WindowState = WindowState.Maximized;
+                Register.GetWindow(this).Width = System.Windows.SystemParameters.WorkArea.Width;
+                Register.GetWindow(this).Height = System.Windows.SystemParameters.WorkArea.Height;
+            };
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
