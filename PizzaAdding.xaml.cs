@@ -36,7 +36,7 @@ namespace Pizza_Site
             string pizzaName = txtPizzaname.Text;
             string ingredients = txtIngredients.Text;
             int price = int.Parse(txtPrice.Text);
-            string image = $"{txtImage.Text}.{cbExtensions.Text.ToLower()}";
+            string image = $"{txtImage.Text.ToLower()}.{cbExtensions.Text.ToLower()}";
             #endregion
             #region Pizza adding
             string addingPizzaResult = pizzaAddingService.AddingPizza(pizzaName,ingredients,price,image);

@@ -61,13 +61,16 @@ namespace Pizza_Site
                 //Giving values to the elements to our list 
                 foreach (var pizza in pizzas)
                 {
-                    pizzaList.Add(new Pizza {Name = pizza.PizzaName, ImagePath = $"\\images\\{pizza.ImagePath}", Ingredients = pizza.Ingredients, Price = pizza.Price });
+                    pizzaList.Add(new Pizza {Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price });;
                 }
+
 
                 //Setting the main grid's itemsource to our appended list
                 PizzaListView.ItemsSource = pizzaList;
             }
         }
+
+
         #endregion
         #region Button clicks and Updates
         private void OrderButton_Click(object sender, RoutedEventArgs e)
