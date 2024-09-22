@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         ResizeMode="NoResize"
-        Title="PizzaAdding" Height="300" Width="300">
+        Title="PizzaAdding" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="./Logo/Wall.png"/>
+    </Window.Background>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,9 +22,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1">
-            <Button x:Name="btnMinimize" Content="_" BorderBrush="Black" Background="LightGoldenrodYellow" Width="30" Height="30" Click="btnMinimize_Click"></Button>
-            <Button x:Name="btnMaximize" Content="🗖" BorderBrush="Black" Background="LightGoldenrodYellow" Width="30" Height="30" Click="btnMaximize_Click"></Button>
-            <Button x:Name="btnClose" Content="X" BorderBrush="Black" Background="LightGoldenrodYellow" Width="30" Height="30" Click="btnClose_Click"></Button>
+            <Button x:Name="btnMinimize" Content="_"  Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
+            <Button x:Name="btnMaximize" Content="🗖"  Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
+            <Button x:Name="btnClose" Content="X"  Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center">

@@ -19,6 +19,7 @@
     <None Remove="Images\margherita.png" />
     <None Remove="Logo\PizzastoreLogo.png" />
     <None Remove="Logo\shopping-cart.png" />
+    <None Remove="Logo\Wall.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,10 +44,19 @@
     <Resource Include="Logo\shopping-cart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Logo\Wall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\**\*.png" />
     <Content Include="Images\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Logo\dark-bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

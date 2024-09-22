@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Admin_Panel" Height="450" Width="800" Background="LightSkyBlue">
+        Title="Admin_Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="./Logo/Wall.png"/>
+    </Window.Background>
+
     <Grid>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,-198,0,198" >
+            <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
+            <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
+            <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
+        </StackPanel>
+
         <StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -23,12 +33,12 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Label Style="{StaticResource LabelStyle}" >Pizza Név</Label>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="1">Ár</Label>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="2">Leírás</Label>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="3">Kép</Label>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="4">Kategória</Label>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="5">Méret</Label>
+                <Label Style="{StaticResource LabelStyle}" Content="Pizza Név" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Content="Ár"/>
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="2" Content="Leírás"/>
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="3" Content="Kép"/>
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="4" Content="Kategória"/>
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="5" Content="Méret"/>
                 <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPizzaName" Grid.Column="1"/>
                 <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPrice" Grid.Row="1" Grid.Column="1"/>
                 <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDescription" Grid.Row="2" Grid.Column="1"/>
@@ -37,9 +47,7 @@
                 <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="cmbSize" Grid.Row="5" Grid.Column="1"/>
             </Grid>
             <Button Content="Add New Pizza" Click="Button_Click" Margin="10"/>
-            <StackPanel x:Name="stpPizzaList">
-                
-            </StackPanel>
+            <StackPanel x:Name="stpPizzaList"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         ResizeMode="NoResize"
-        Title="Login" Height="450" Width="350" MinHeight="450" MinWidth="350" >
+        Title="Login" Height="450" Width="350" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="./Logo/Wall.png"/>
+    </Window.Background>
 
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="160" Width="330">
@@ -26,11 +29,12 @@
         <Image Source="/Pizza_Site;component/Logo/PizzastoreLogo.png"
             HorizontalAlignment="Left"
             Width="266" Height="139" Margin="96,-145,0,36" Grid.ColumnSpan="2"/>
+        
         <!-- Custom title bar start -->
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,-140,-5,150">
-            <Button x:Name="btnMinimize" Content="_" BorderBrush="Black" Background="LightGoldenrodYellow" Width="30" Height="30" Click="btnMinimize_Click"></Button>
-            <Button x:Name="btnMaximize" Content="🗖" BorderBrush="Black" Background="LightGoldenrodYellow" Width="30" Height="30" Click="btnMaximize_Click"></Button>
-            <Button x:Name="btnClose" Content="X" BorderBrush="Black" Background="LightGoldenrodYellow" Width="30" Height="30" Click="btnClose_Click"></Button>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,-139,0,149">
+            <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
+            <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
+            <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
         <!-- Custom title bar end -->
 
