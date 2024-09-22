@@ -13,8 +13,6 @@ namespace Pizza_Site.Models
     internal class PizzaDbConnection
     {
         public SQLiteConnection sqlite_conn;
-        public SQLiteCommand sqlite_cmd;
-        public SQLiteDataReader sqlite_datareader;
 
         public PizzaDbConnection()
         {

@@ -16,6 +16,6 @@ namespace Pizza_Site.Models
         public string? User_Email { get; set; }
         public string? User_MobileNumber { get; set; }
         public string? User_Address { get; set; }
-        public Boolean Is_Admin { get; set; }
+        public Boolean? Is_Admin { get; set; }
     }
 }

@@ -15,11 +15,13 @@ namespace Pizza_Site
 {
     public partial class MainWindow : Window
     {
+        #region Variables
         private List<Pizza> pizzas;
         private ObservableCollection<CartItem> cart;
-
-
         string userName = null;
+        #endregion
+
+        #region Main and User
         public void InitUser()
         {
             if (userName == null)
@@ -37,41 +39,40 @@ namespace Pizza_Site
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             PizzaDbConnection connection = new PizzaDbConnection();
             InitializeComponent();
-            LoadPizzaList();
+            LoadPizzaListFromDb();
+            //LoadPizzaList();
             cart = new ObservableCollection<CartItem>();
             CartListView.ItemsSource = cart;
         }
+        #endregion
 
-        public class Pizza
+        #region Loading Pizza list from database
+        public void LoadPizzaListFromDb() 
         {
-            public string Name { get; set; }
-            public string Ingredients { get; set; }
-            public int Price { get; set; }
-            public string ImagePath { get; set; }
-        }
-
-        public class CartItem
-        {
-            public string Name { get; set; }
-            public int Quantity { get; set; }
-            public int UnitPrice { get; set; }
-            public int TotalPrice => Quantity * UnitPrice;
-        }
-
-        private void LoadPizzaList()
-        {
-            pizzas = new List<Pizza>
+            //Creating a new db context
+            using (var newContext = new PizzaContext())
             {
-                new Pizza { Name = "Margherita", Ingredients = "Paradicsomszósz, Mozzarella", Price = 1200, ImagePath = "images/margherita.jpg" },
-                new Pizza { Name = "Pepperoni", Ingredients = "Paradicsomszósz, Mozzarella, Pepperoni", Price = 1400, ImagePath = "images/pepperoni.jpg" },
-                new Pizza { Name = "Hawaii", Ingredients = "Paradicsomszósz, Mozzarella, Sonka, Ananász", Price = 1500, ImagePath = "images/hawaii.jpg" },
-                new Pizza { Name = "BBQ Csirke", Ingredients = "BBQ Szósz, Mozzarella, Csirke", Price = 1600, ImagePath = "images/bbq_csirke.jpg" },
-                new Pizza { Name = "Vegetáriánus", Ingredients = "Paradicsomszósz, Mozzarella, Zöldségek", Price = 1300, ImagePath = "images/vegetarian.jpg" }
-            };
+                //Creating an itemsource list to our grid and pushing the datas from the database to it
+                List<Pizza> pizzaList = new List<Pizza>();
 
-            PizzaListView.ItemsSource = pizzas;
+                //Creating a list from our PizzaDescription table
+                var pizzas = newContext.PizzasDescription.ToList();
+
+                //Giving values to the elements to our list 
+                foreach (var pizza in pizzas)
+                {
+                    pizzaList.Add(new Pizza {Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price });;
+                }
+
+
+                //Setting the main grid's itemsource to our appended list
+                PizzaListView.ItemsSource = pizzaList;
+            }
         }
 
+
+        #endregion
+        #region Button clicks and Updates
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             Button orderButton = sender as Button;
@@ -182,26 +183,33 @@ namespace Pizza_Site
             TotalPriceTextBlock.Text = $"Összesen: {totalPrice} Ft";
         }
 
+        #endregion
+
+        #region Custom title bar clicks
+        //For dragging the window
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
-
+        //Window minimizeing
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
-
+        //Window maximizeing
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Maximized)
                 WindowState = WindowState.Normal;
             else WindowState = WindowState.Maximized;
         }
+        //Window closing
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            //Close(); For closing only this window
+            Application.Current.Shutdown(); //For closing the whole app
         }
+        #endregion
     }
 
 }

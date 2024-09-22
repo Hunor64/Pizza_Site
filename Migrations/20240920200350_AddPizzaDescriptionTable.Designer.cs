@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pizza_Site.Models;
 
@@ -10,9 +11,11 @@ using Pizza_Site.Models;
 namespace Pizza_Site.Migrations
 {
     [DbContext(typeof(PizzaContext))]
-    partial class PizzaContextModelSnapshot : ModelSnapshot
+    [Migration("20240920200350_AddPizzaDescriptionTable")]
+    partial class AddPizzaDescriptionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
@@ -44,19 +47,11 @@ namespace Pizza_Site.Migrations
 
             modelBuilder.Entity("Pizza_Site.Models.PizzasDescription", b =>
                 {
-                    b.Property<string>("PizzaName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Ingredients")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Price")
+                    b.Property<int>("pizzaId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PizzaName");
+                    b.HasKey("pizzaId");
 
                     b.ToTable("PizzasDescription");
                 });

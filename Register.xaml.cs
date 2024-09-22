@@ -136,7 +136,7 @@ namespace Pizza_Site
             else if (registrationResult == $"Registration failed: Username '{username}' is already taken.")
             {
                 this.Close();
-                CustomMessageBox failedRegister = new CustomMessageBox("Registration failed: Username '{username}' is already taken! \nDo you want to Log in or you want to create another account?", "Log in", "Register another account");
+                CustomMessageBox failedRegister = new CustomMessageBox($"Registration failed: Username '{username}' is already taken! \nDo you want to Log in or you want to create another account?", "Log in", "Register another account");
                 bool? result = failedRegister.ShowDialog();
 
                 if (result == true)
@@ -182,8 +182,17 @@ namespace Pizza_Site
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Maximized)
+            {
                 WindowState = WindowState.Normal;
-            else WindowState = WindowState.Maximized;
+                Register.GetWindow(this).Width = 350;
+                Register.GetWindow(this).Height = 450;
+            }
+            else if (WindowState == WindowState.Normal) 
+            {
+                WindowState = WindowState.Maximized;
+                Register.GetWindow(this).Width = System.Windows.SystemParameters.WorkArea.Width;
+                Register.GetWindow(this).Height = System.Windows.SystemParameters.WorkArea.Height;
+            };
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
