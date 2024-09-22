@@ -24,9 +24,9 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <StackPanel x:Name="MainPanel" Visibility="Visible">
-                        <ListView Name="PizzaListView" ItemsSource="{Binding Pizzas}">
+                        <ListView Name="PizzaListView" ItemsSource="{Binding Pizzas}" Style="{DynamicResource ListViewStyle}">
                             <ListView.View>
-                                <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
+                                <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}" >
                                     <GridViewColumn Header="Pizza">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

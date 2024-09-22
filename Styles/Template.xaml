@@ -133,4 +133,8 @@
        
     </Style>
 
+    <Style TargetType="ListView" x:Key="ListViewStyle">
+        <Setter Property="Background" Value="RoyalBlue"/>
+    </Style>
+    
 </ResourceDictionary>
