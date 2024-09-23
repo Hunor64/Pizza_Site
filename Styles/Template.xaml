@@ -149,12 +149,15 @@
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Background" Value="LightSkyBlue"/>
+        <Setter Property="Background" Value="Transparent"/>
        
     </Style>
 
     <Style TargetType="ListView" x:Key="ListViewStyle">
-        <Setter Property="Background" Value="RoyalBlue"/>
+        
+        <Setter Property="Background" Value="Transparent"/>
+
+
     </Style>
     
 </ResourceDictionary>

@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         ResizeMode="NoResize"
-        Title="Registration" Height="450" Width="350" WindowStartupLocation="CenterScreen">
+        Title="Registration" Height="450" Width="350" WindowStartupLocation="CenterScreen" BorderBrush="WhiteSmoke" BorderThickness="2">
     <Window.Background>
         <ImageBrush ImageSource="./Logo/Wall.png"/>
     </Window.Background>
-    
-    
+
+
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="330">
 
         <Grid.ColumnDefinitions>
@@ -29,6 +29,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+
+        <Image Source="/Pizza_Site;component/Logo/PizzastoreLogo.png"
+            HorizontalAlignment="Left"
+            Width="266" Height="139" Margin="94,-17,0,21" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
         <!-- Custom title bar start -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Margin="0,10,0,0">
