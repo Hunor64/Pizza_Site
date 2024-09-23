@@ -46,7 +46,19 @@
                 <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPizzaname" Style="{StaticResource TextBoxStyle}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="2" Text="Ingredients:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-                <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtIngredients" Style="{StaticResource TextBoxStyle}"/>
+                <StackPanel Grid.Column="1" Grid.Row="2">
+                    <!-- Grid to display selected ingredients in rows -->
+                    <Grid x:Name="gridSelectedIngredients" />
+
+                    <!-- ComboBox for ingredient selection -->
+                    <ComboBox x:Name="cbIngredients" SelectionChanged="cbIngredients_SelectionChanged" Width="120">
+                        <ComboBoxItem Content="Cheese"/>
+                        <ComboBoxItem Content="Ham"/>
+                        <ComboBoxItem Content="Salami"/>
+                    </ComboBox>
+                </StackPanel>
+
+
 
                 <TextBlock Grid.Column="0" Grid.Row="3" Text="Price:" Style="{StaticResource InputMarkerTextblockStyle}"/>
                 <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtPrice" Style="{StaticResource TextBoxStyle}"/>
