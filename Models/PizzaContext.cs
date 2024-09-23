@@ -13,6 +13,7 @@ namespace Pizza_Site.Models
     {
         public DbSet<PizzaUsers> PizzaStore { get; set; }
         public DbSet<PizzasDescription> PizzasDescription { get; set; }
+        public DbSet<PizzaStorage> PizzaStorage { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
