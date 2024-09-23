@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         ResizeMode="NoResize"
-        Title="Registration" Height="450" Width="350" WindowStartupLocation="CenterScreen">
+        Title="Registration" Height="450" Width="350" WindowStartupLocation="CenterScreen" BorderBrush="WhiteSmoke" BorderThickness="2">
     <Window.Background>
         <ImageBrush ImageSource="./Logo/Wall.png"/>
     </Window.Background>
-    
-    
+
+
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="330">
 
         <Grid.ColumnDefinitions>
