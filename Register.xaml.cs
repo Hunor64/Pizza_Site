@@ -54,8 +54,6 @@ namespace Pizza_Site
             {
                 CustomMessageBox adminErr = new CustomMessageBox("Error: Not a valid admin code!", "Again", "Proceed with the registration");
                 bool? adminResult = adminErr.ShowDialog();
-
-                MessageBox.Show(adminErr.Result);
                 if (adminResult == true)
                 {
                     string userAdminChoice = adminErr.Result;

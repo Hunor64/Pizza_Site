@@ -52,11 +52,11 @@
                 <Setter Property="Foreground" Value="Black"/>
             </Trigger>
         </Style.Triggers>
-        
+
     </Style>
-    
+
     <!-- TEXTBLOCK STYLE -->
-    
+
     <Style TargetType="TextBlock" x:Key="TextBlockStyle">
 
         <Setter Property="Foreground" Value="AntiqueWhite" />
@@ -77,9 +77,9 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <!-- INPUT MARKER TEXTBLOCK STYLE -->
-    
+
     <Style TargetType="TextBlock" x:Key="InputMarkerTextblockStyle">
 
         <Setter Property="Foreground" Value="WhiteSmoke" />
@@ -88,12 +88,12 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="20"/>
-        
+
     </Style>
-    
-    
+
+
     <!-- TEXTBOX STYLE -->
-    
+
     <Style TargetType="TextBox" x:Key="TextBoxStyle">
 
         <Setter Property="Margin" Value="5"/>
@@ -104,7 +104,7 @@
     </Style>
 
     <!-- PASSWORDBOX STYLE -->
-    
+
     <Style TargetType="PasswordBox" x:Key="PasswordBoxStyle">
 
         <Setter Property="Margin" Value="5"/>
@@ -126,7 +126,7 @@
         <Setter Property="FontSize" Value="17.5"/>
 
     </Style>
-    
+
     <!-- COMBOBOX STYLE -->
 
     <Style TargetType="ComboBox" x:Key="ComboboxStyle">
@@ -136,10 +136,10 @@
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
         <Setter Property="Foreground" Value="Black" />
-        
+
 
     </Style>
-    
+
     <!-- GRIDVIEW STYLE -->
 
     <Style TargetType="GridViewColumnHeader" x:Key="GridViewColumnHeaderStyle">
@@ -149,12 +149,8 @@
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Background" Value="LightSkyBlue"/>
-       
-    </Style>
+        <Setter Property="Background" Value="Tomato"/>
 
-    <Style TargetType="ListView" x:Key="ListViewStyle">
-        <Setter Property="Background" Value="RoyalBlue"/>
     </Style>
     
 </ResourceDictionary>
