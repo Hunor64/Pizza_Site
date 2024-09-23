@@ -35,11 +35,36 @@ namespace Pizza_Site
             #region Pizza Variables
             string pizzaName = txtPizzaname.Text;
             string ingredients = txtIngredients.Text;
-            int price = int.Parse(txtPrice.Text);
+            string priceText = txtPrice.Text;
             string image = $"{txtImage.Text.ToLower()}.{cbExtensions.Text.ToLower()}";
             #endregion
+
+            #region Pizza Validation
+            if (string.IsNullOrEmpty(pizzaName))
+            {
+                MessageBox.Show("Error: Not a valid pizza name!");
+                return;
+            }
+            if (string.IsNullOrEmpty(ingredients))
+            {
+                MessageBox.Show("Error: Don't leave ingredients field empty! ");
+                return;
+            }
+            if (!int.TryParse(txtPrice.Text, out int outPrice) || outPrice <= 0)
+            {
+                MessageBox.Show("Please enter a valid price greater than zero.");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtImage.Text))
+            {
+                MessageBox.Show("Error: Don't leave Image field empty! ");
+                return;
+            }
+            #endregion
+
+            int price = int.Parse(txtPrice.Text);
             #region Pizza adding
-            string addingPizzaResult = pizzaAddingService.AddingPizza(pizzaName,ingredients,price,image);
+            string addingPizzaResult = pizzaAddingService.AddingPizza(pizzaName, ingredients, price, image);
 
             if (addingPizzaResult == "New pizza added!")
             {
@@ -73,6 +98,7 @@ namespace Pizza_Site
                 MessageBox.Show(addingPizzaResult);
             }
             #endregion
+
         }
         #region Custom title bar clicks
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
