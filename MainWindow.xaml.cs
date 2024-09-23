@@ -47,7 +47,7 @@ namespace Pizza_Site
         #endregion
 
         #region Loading Pizza list from database
-        public void LoadPizzaListFromDb() 
+        public void LoadPizzaListFromDb()
         {
             //Creating a new db context
             using (var newContext = new PizzaContext())
@@ -61,7 +61,7 @@ namespace Pizza_Site
                 //Giving values to the elements to our list 
                 foreach (var pizza in pizzas)
                 {
-                    pizzaList.Add(new Pizza {Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price });;
+                    pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
                 }
 
 
@@ -111,6 +111,8 @@ namespace Pizza_Site
                         UnitPrice = selectedPizza.Price
                     };
                     cart.Add(cartItem);
+                    MessageBox.Show("Felvéve a kosába!");
+
                 }
 
                 CartItemCount.Text = cart.Sum(item => item.Quantity).ToString();
