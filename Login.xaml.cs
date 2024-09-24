@@ -46,7 +46,7 @@ namespace Pizza_Site
                 if (users.FindIndex(x => x.User_Name.ToString() == username) == -1)
                 {
                     //Creates new custom message box element
-                    CustomMessageBox LoginErr = new CustomMessageBox("Username not Found!", "Try Again", "Register" );
+                    CustomMessageBox LoginErr = new CustomMessageBox("Username not Found!", "Try Again", "Register");
                     bool? result = LoginErr.ShowDialog();
 
                     //Decide which option was selected
@@ -83,10 +83,24 @@ namespace Pizza_Site
                             //Logins if success
                             this.Close();
                             loginSucsess = true;
+                            //Pass the user's data to the main window
                             if (loginSucsess)
                             {
-                                loginSucsess = true;
-                                this.Close();
+                                foreach (var us in users)
+                                {
+                                    if (user.User_Name == username)
+                                    {
+                                        string userName = user.User_Name.ToString();
+                                        string userEmail = user.User_Email.ToString();
+                                        string userPhone = user.User_MobileNumber.ToString();
+                                        string userAddress = user.User_Address.ToString();
+                                        bool isAdmin = user.Is_Admin;
+                                        var mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                                        mainWindow.SetUserDetails(userName, userAddress, userEmail, userPhone, password, isAdmin);
+                                        return;
+                                    }
+                                }
+
                             }
                         }
 
@@ -133,7 +147,7 @@ namespace Pizza_Site
         }
         #endregion
 
-      
+
         private void txbClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();

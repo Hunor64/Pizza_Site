@@ -11,7 +11,8 @@
     <Window.Background>
         <ImageBrush ImageSource="./Logo/mainbg.png"/>
     </Window.Background>
-    
+
+
     <Grid>
         <!-- Custom title bar start -->
         <Grid.RowDefinitions>
@@ -24,6 +25,7 @@
             <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
+
         <!-- Custom title bar end -->
         <Grid Grid.Row="2">
             <ScrollViewer VerticalScrollBarVisibility="Auto">

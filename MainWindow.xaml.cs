@@ -15,16 +15,31 @@ namespace Pizza_Site
 {
     public partial class MainWindow : Window
     {
+
         #region Variables
         private List<Pizza> pizzas;
         private ObservableCollection<CartItem> cart;
-        string userName = null;
+        private string? _userName;
+        private string? _password;
+        private string? _email;
+        private string? _phone;
+        private string? _address;
+        private bool? _isAdmin;
         #endregion
+        public void SetUserDetails(string userName, string userAddress, string userEmail, string userMobile, string userPass, bool isAdmin)
+        {
+            _userName = userName;
+            _password = userPass;
+            _email = userEmail;
+            _address = userAddress;
+            _phone = userMobile;
+            _isAdmin = isAdmin;
+        }
 
         #region Main and User
         public void InitUser()
         {
-            if (userName == null)
+            if (_userName == null)
             {
                 Login loginWindow = new();
                 loginWindow.ShowDialog();
@@ -40,10 +55,17 @@ namespace Pizza_Site
             PizzaDbConnection connection = new PizzaDbConnection();
             InitializeComponent();
             LoadPizzaListFromDb();
-            //LoadPizzaList();
             cart = new ObservableCollection<CartItem>();
             CartListView.ItemsSource = cart;
+            this.Closing += MainWindow_Closed;
+
         }
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            // Reset all user-related variables
+            SetUserDetails(null, null, null, null, null, false);
+        }
+
         #endregion
 
         #region Loading Pizza list from database
@@ -124,6 +146,7 @@ namespace Pizza_Site
             MainPanel.Visibility = Visibility.Collapsed;
             CartPanel.Visibility = Visibility.Visible;
             UpdateTotalPrice();
+            MessageBox.Show($"2: Username:{_userName},\nPassword:{_password},\nAdmin:{_isAdmin}");
         }
 
         private void BackToMain_Click(object sender, RoutedEventArgs e)
