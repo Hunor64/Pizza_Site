@@ -237,6 +237,8 @@ namespace Pizza_Site
             Application.Current.Shutdown(); //For closing the whole app
         }
         #endregion
+
+     
     }
 
 }

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
-    <!-- CUSTOM TITLE BAR STYLE -->
+    <!--#region CUSTOM TITLE BAR STYLE -->
 
     <Style TargetType="Button" x:Key="CustomTitleButtonStyle">
 
@@ -23,8 +23,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- BUTTON STYLE -->
+    <!--#region BUTTON STYLE -->
 
     <Style TargetType="Button" x:Key="ButtonStyle">
 
@@ -54,8 +55,9 @@
         </Style.Triggers>
 
     </Style>
+    <!--#endregion-->
 
-    <!-- TEXTBLOCK STYLE -->
+    <!--#region TEXTBLOCK STYLE -->
 
     <Style TargetType="TextBlock" x:Key="TextBlockStyle">
 
@@ -77,8 +79,9 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!--#endregion-->
 
-    <!-- INPUT MARKER TEXTBLOCK STYLE -->
+    <!--#region INPUT MARKER TEXTBLOCK STYLE -->
 
     <Style TargetType="TextBlock" x:Key="InputMarkerTextblockStyle">
 
@@ -90,9 +93,9 @@
         <Setter Property="FontSize" Value="20"/>
 
     </Style>
+    <!--#endregion-->
 
-
-    <!-- TEXTBOX STYLE -->
+    <!--#region TEXTBOX STYLE -->
 
     <Style TargetType="TextBox" x:Key="TextBoxStyle">
 
@@ -102,8 +105,9 @@
         <Setter Property="MinWidth" Value="100"/>
 
     </Style>
+    <!--#endregion-->
 
-    <!-- PASSWORDBOX STYLE -->
+    <!--#region PASSWORDBOX STYLE -->
 
     <Style TargetType="PasswordBox" x:Key="PasswordBoxStyle">
 
@@ -113,8 +117,9 @@
         <Setter Property="MinWidth" Value="100"/>
 
     </Style>
+    <!--#endregion-->
 
-    <!-- LABEL STYLE -->
+    <!--#region LABEL STYLE -->
 
     <Style TargetType="Label" x:Key="LabelStyle">
 
@@ -126,8 +131,9 @@
         <Setter Property="FontSize" Value="17.5"/>
 
     </Style>
+    <!--#endregion-->
 
-    <!-- COMBOBOX STYLE -->
+    <!--#region COMBOBOX STYLE -->
 
     <Style TargetType="ComboBox" x:Key="ComboboxStyle">
 
@@ -139,18 +145,98 @@
 
 
     </Style>
+    <!--#endregion-->
 
-    <!-- GRIDVIEW STYLE -->
+    <!--#region GRIDVIEW STYLE -->
 
     <Style TargetType="GridViewColumnHeader" x:Key="GridViewColumnHeaderStyle">
 
         <Setter Property="Margin" Value="5"/>
         <Setter Property="FontFamily" Value="Arial"/>
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="MinWidth" Value="100"/>
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Background" Value="Tomato"/>
+        <Setter Property="Foreground" Value="Black"/>
 
     </Style>
+    <!--#endregion-->
+
+    <!--#region LISTVIEW STYLE -->
+        
+    <!-- it just works (dunno how tho) -->
+    
+    <Style TargetType="ListView">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListView}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <!-- Row for the header -->
+                            <RowDefinition Height="Auto" />
+                            <!-- Row for the list content -->
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Border x:Name="Bd" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="Black" 
+                            Padding="1"
+                            SnapsToDevicePixels="true"
+                            Opacity="0.5"
+                            Grid.RowSpan="2">
+                        </Border>
+
+                        <!-- GridView header row presenter should be in the first row -->
+                        <GridViewHeaderRowPresenter 
+                        Margin="0,0,0,1" 
+                        Columns="{Binding Path=View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                        ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}" 
+                        Grid.Row="0" />
+
+                        <!-- ScrollViewer with content in the second row -->
+                        <ScrollViewer Focusable="false" 
+                                  Padding="{TemplateBinding Padding}" 
+                                  Margin="{TemplateBinding BorderThickness}" 
+                                  Grid.Row="1">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region BUTTON STYLE -->
+
+    <Style TargetType="Button" x:Key="AlternateButtonStyle">
+
+        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Background" Value="DimGray" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="WhiteSmoke" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="DarkGoldenrod"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+    <!--#endregion-->
     
 </ResourceDictionary>
