@@ -147,7 +147,7 @@ namespace Pizza_Site
         }
         #endregion
 
-
+        #region Title bar clicks
         private void txbClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
@@ -179,5 +179,6 @@ namespace Pizza_Site
             PizzaAdding newPizzaAdding = new PizzaAdding();
             newPizzaAdding.ShowDialog();
         }
+        #endregion
     }
 }

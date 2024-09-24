@@ -26,6 +26,10 @@ namespace Pizza_Site
         private string? _address;
         private bool? _isAdmin;
         #endregion
+
+
+        #region Main and User
+        //Getting user data from login
         public void SetUserDetails(string userName, string userAddress, string userEmail, string userMobile, string userPass, bool isAdmin)
         {
             _userName = userName;
@@ -35,8 +39,6 @@ namespace Pizza_Site
             _phone = userMobile;
             _isAdmin = isAdmin;
         }
-
-        #region Main and User
         public void InitUser()
         {
             if (_userName == null)
