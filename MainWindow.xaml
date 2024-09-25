@@ -31,13 +31,13 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <StackPanel x:Name="MainPanel">
-                        <ListView  Name="PizzaListView" ItemsSource="{Binding Pizzas}" >
+                        <ListView Name="PizzaListView" ItemsSource="{Binding Pizzas}">
                             <ListView.View>
-                                <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}" >
-                                    <GridViewColumn Header="Pizza" >
-                                        <GridViewColumn.CellTemplate >
+                                <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
+                                    <GridViewColumn Header="Pizza">
+                                        <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal" Margin="5" >
+                                                <StackPanel Orientation="Horizontal" Margin="5">
                                                     <Image Source="{Binding ImagePath}" Width="100" Height="100" Margin="5"/>
                                                     <StackPanel>
                                                         <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="17" Foreground="Salmon"/>
@@ -53,7 +53,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBox Width="50" Text="1" Margin="5" Background="Aquamarine"/>
+                                                    <TextBox Width="50" Text="1" Margin="5" Background="Aquamarine" />
                                                     <Button Content="Rendelés" Tag="{Binding}" Click="OrderButton_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
                                                 </StackPanel>
                                             </DataTemplate>
@@ -63,24 +63,37 @@
                             </ListView.View>
                         </ListView>
                     </StackPanel>
+
                     <StackPanel x:Name="CartPanel" Visibility="Collapsed">
                         <Button Content="Vissza" Click="BackToMain_Click" Width="100" HorizontalAlignment="Left" />
                         <ListView Name="CartListView">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Pizza" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                                    <GridViewColumn Header="Mennyiség" Width="150">
+                                    <GridViewColumn Header="Pizza">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" Foreground="Salmon" FontWeight="Bold"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Mennyiség">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBox Width="50"  Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
-                                                 TextChanged="QuantityTextBox_TextChanged"/>
-                                                    <Button Content="Törlés" Tag="{Binding}" Click="RemoveButton_Click" />
+                                                    <TextBox Width="50" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
+                                                     TextChanged="QuantityTextBox_TextChanged" Background="Aquamarine"/>
+                                                    <Button Content="Törlés" Tag="{Binding}" Click="RemoveButton_Click" Margin="5" />
                                                 </StackPanel>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Ár" DisplayMemberBinding="{Binding TotalPrice, StringFormat={}{0} Ft}" Width="100"/>
+                                    <GridViewColumn Header="Ár">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding TotalPrice, StringFormat={}{0} Ft}" FontWeight="Bold" Foreground="Green"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -89,11 +102,12 @@
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
+
             <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-30,766,0">
                 <Button Name="CartButton" Click="CartButton_Click" Width="30" Height="30" VerticalAlignment="Top">
                     <StackPanel>
-                        <Image Source="/Pizza_Site;component/Logo/shopping-cart.png" Width="25" Height="25" />
-                        <TextBlock x:Name="CartItemCount" Text="0" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                        <Image Source="/Pizza_Site;component/Logo/shopping-cart.png" Width="25" Height="25"/>
+                        <TextBlock x:Name="CartItemCount" Text="0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Button>
             </Grid>
