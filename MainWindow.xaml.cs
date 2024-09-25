@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 
 namespace Pizza_Site
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
 
         #region Variables
