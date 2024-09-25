@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Admin_Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="WhiteSmoke" BorderThickness="2">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Title="Admin_Panel" ResizeMode="NoResize" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="WhiteSmoke" BorderThickness="2">
     <Window.Background>
         <ImageBrush ImageSource="./Logo/Wall.png"/>
     </Window.Background>
