@@ -21,6 +21,7 @@ namespace Pizza_Site
         public Admin_Panel()
         {
             InitializeComponent();
+            LoadPizzaListFromDb();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,22 +56,22 @@ namespace Pizza_Site
             PizzaAdding newPizzaAdding = new PizzaAdding();
             newPizzaAdding.ShowDialog();
         }
-        //public void LoadPizzaListFromDb()
-        //{
-        //    using (var newContext = new PizzaContext())
-        //    {
-        //        List<Pizza> pizzaList = new List<Pizza>();
+        public void LoadPizzaListFromDb()
+        {
+            using (var newContext = new PizzaContext())
+            {
+                List<Pizza> pizzaList = new List<Pizza>();
 
-        //        var pizzas = newContext.PizzasDescription.ToList();
+                var pizzas = newContext.PizzasDescription.ToList();
 
-        //        foreach (var pizza in pizzas)
-        //        {
-        //            pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
-        //        }
-        //        PizzaListView.ItemsSource = pizzaList;
-                
-        //    }
-        //}
+                foreach (var pizza in pizzas)
+                {
+                    pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
+                }
+                lsbPizzaElemek.ItemsSource = pizzaList;
+
+            }
+        }
 
     }
 }
