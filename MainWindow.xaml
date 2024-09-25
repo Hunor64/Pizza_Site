@@ -53,7 +53,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBox Width="50" Text="1" Margin="5"/>
+                                                    <TextBox Width="50" Text="1" Margin="5" Background="Aquamarine"/>
                                                     <Button Content="Rendelés" Tag="{Binding}" Click="OrderButton_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
                                                 </StackPanel>
                                             </DataTemplate>
@@ -69,11 +69,11 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Pizza" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                                    <GridViewColumn Header="Mennyiség">
+                                    <GridViewColumn Header="Mennyiség" Width="150">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBox Width="50" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
+                                                    <TextBox Width="50"  Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
                                                  TextChanged="QuantityTextBox_TextChanged"/>
                                                     <Button Content="Törlés" Tag="{Binding}" Click="RemoveButton_Click" />
                                                 </StackPanel>
