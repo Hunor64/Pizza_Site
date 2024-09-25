@@ -23,11 +23,8 @@
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="Button_Click_1">Pizza Hozzáadása</Button>
+            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="AddNewPizza">Pizza Hozzáadása</Button>
         </StackPanel>
-        <ListView Grid.Row="2" x:Name="PizzaListView">
-
-        </ListView>
-
+        
     </Grid>
 </Window>
