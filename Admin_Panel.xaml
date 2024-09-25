@@ -11,43 +11,21 @@
     </Window.Background>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,-198,0,198" >
             <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
             <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
-
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="200px"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <Label Style="{StaticResource LabelStyle}" Content="Pizza Név" />
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Content="Ár"/>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="2" Content="Leírás"/>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="3" Content="Kép"/>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="4" Content="Kategória"/>
-                <Label Style="{StaticResource LabelStyle}" Grid.Row="5" Content="Méret"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPizzaName" Grid.Column="1"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPrice" Grid.Row="1" Grid.Column="1"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDescription" Grid.Row="2" Grid.Column="1"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtImage" Grid.Row="3" Grid.Column="1"/>
-                <ComboBox Style="{StaticResource ComboboxStyle}"  x:Name="cmbCategory" Grid.Row="4" Grid.Column="1"/>
-                <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="cmbSize" Grid.Row="5" Grid.Column="1"/>
-            </Grid>
-            <Button Content="Add New Pizza" Click="Button_Click" Margin="10"/>
-            <StackPanel x:Name="stpPizzaList"/>
+        <StackPanel Grid.Row="1">
+            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="Button_Click_1">Pizza Hozzáadása</Button>
         </StackPanel>
+        <StackPanel x:Name="STKPizzaList">
+            
+        </StackPanel>
+
     </Grid>
 </Window>

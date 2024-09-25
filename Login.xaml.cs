@@ -176,7 +176,7 @@ namespace Pizza_Site
 
         private void btnOpenPizzaAdding(object sender, RoutedEventArgs e)
         {
-            PizzaAdding newPizzaAdding = new PizzaAdding();
+            Admin_Panel newPizzaAdding = new();
             newPizzaAdding.ShowDialog();
         }
         #endregion

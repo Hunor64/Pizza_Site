@@ -48,5 +48,11 @@ namespace Pizza_Site
             Application.Current.Shutdown();
         }
         #endregion
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PizzaAdding newPizzaAdding = new PizzaAdding();
+            newPizzaAdding.ShowDialog();
+        }
     }
 }

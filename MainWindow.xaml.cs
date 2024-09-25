@@ -53,14 +53,23 @@ namespace Pizza_Site
         public MainWindow()
         {
             InitUser();
+
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             PizzaDbConnection connection = new PizzaDbConnection();
+            if (_isAdmin == true)
+            {
+                Admin_Panel panel = new();
+                panel.ShowDialog();
+            }
             InitializeComponent();
             LoadPizzaListFromDb();
             cart = new ObservableCollection<CartItem>();
             CartListView.ItemsSource = cart;
             this.Closing += MainWindow_Closed;
-
+            if (_userName == null || _userName == "")
+            {
+                this.Close();
+            }
         }
         private void MainWindow_Closed(object sender, EventArgs e)
         {
