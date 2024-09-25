@@ -53,7 +53,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBox Width="50" Text="1" Margin="5" Background="Aquamarine" />
+                                                    <TextBox Width="50" Text="1" Margin="5"/>
                                                     <Button Content="Rendelés" Tag="{Binding}" Click="OrderButton_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
                                                 </StackPanel>
                                             </DataTemplate>
@@ -69,35 +69,35 @@
                         <ListView Name="CartListView">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Pizza">
+                                    <GridViewColumn Header="Pizza" Width="150">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Name}" Foreground="Salmon" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding Name}" Foreground="Salmon" FontWeight="Bold" FontSize="15"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Mennyiség">
+                                    <GridViewColumn Header="Mennyiség" Width="150">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBox Width="50" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
-                                                     TextChanged="QuantityTextBox_TextChanged" Background="Aquamarine"/>
-                                                    <Button Content="Törlés" Tag="{Binding}" Click="RemoveButton_Click" Margin="5" />
+                                                     TextChanged="QuantityTextBox_TextChanged" Style="{DynamicResource QuantityTextBoxStyle}" />
+                                                    <Button Content="Törlés" Tag="{Binding}" Style="{DynamicResource DeleteButtonStyle}" Click="RemoveButton_Click" Margin="5" />
                                                 </StackPanel>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Ár">
+                                    <GridViewColumn Header="Ár" Width="110">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding TotalPrice, StringFormat={}{0} Ft}" FontWeight="Bold" Foreground="Green"/>
+                                                <TextBlock Text="{Binding TotalPrice, StringFormat={}{0} Ft}" FontWeight="Bold" Foreground="Green" FontSize="15"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <TextBlock Name="TotalPriceTextBlock" FontWeight="Bold" FontSize="16" HorizontalAlignment="Right" Margin="10"/>
+                        <TextBlock Name="TotalPriceTextBlock" FontWeight="Bold" FontSize="16" Foreground="WhiteSmoke" HorizontalAlignment="Right" Margin="10"/>
                         <Button Content="Rendelés véglegesítése" Click="FinalizeOrderButton_Click" Width="200" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
                     </StackPanel>
                 </Grid>

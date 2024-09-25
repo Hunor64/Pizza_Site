@@ -103,6 +103,7 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
 
     </Style>
     <!--#endregion-->
@@ -207,7 +208,7 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region BUTTON STYLE -->
+    <!--#region ORDER BUTTON STYLE -->
 
     <Style TargetType="Button" x:Key="AlternateButtonStyle">
 
@@ -238,5 +239,49 @@
 
     </Style>
     <!--#endregion-->
+
+    <!--#region DELETE BUTTON STYLE -->
+
+    <Style TargetType="Button" x:Key="DeleteButtonStyle">
+
+        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Background" Value="DimGray" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="WhiteSmoke" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="DarkGoldenrod"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+    <!--#endregion-->
     
+    <!--#region QUANTITY TEXTBOX STYLE -->
+
+    <Style TargetType="TextBox" x:Key="QuantityTextBoxStyle">
+
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+    </Style>
+    <!--#endregion-->
+
 </ResourceDictionary>
