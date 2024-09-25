@@ -31,7 +31,7 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <StackPanel x:Name="MainPanel">
-                        <ListView Name="PizzaListView" ItemsSource="{Binding Pizzas}">
+                        <ListView Name="PizzaListView"  ItemsSource="{Binding Pizzas}">
                             <ListView.View>
                                 <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
                                     <GridViewColumn Header="Pizza">
