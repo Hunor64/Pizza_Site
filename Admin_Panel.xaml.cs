@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pizza_Site.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,29 @@ namespace Pizza_Site
         {
             PizzaAdding newPizzaAdding = new PizzaAdding();
             newPizzaAdding.ShowDialog();
+        }
+        public void LoadPizzaListFromDb()
+        {
+            //Creating a new db context
+            using (var newContext = new PizzaContext())
+            {
+                //Creating an itemsource list to our grid and pushing the datas from the database to it
+                List<Pizza> pizzaList = new List<Pizza>();
+
+                //Creating a list from our PizzaDescription table
+                var pizzas = newContext.PizzasDescription.ToList();
+
+                //Giving values to the elements to our list 
+                foreach (var pizza in pizzas)
+                {
+                    pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
+                }
+
+
+                //Setting the main grid's itemsource to our appended list
+                PizzaListView.ItemsSource = pizzaList;
+                
+            }
         }
     }
 }

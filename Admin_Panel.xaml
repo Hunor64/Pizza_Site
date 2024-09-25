@@ -15,6 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="700,0,0,0" >
             <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
@@ -24,9 +25,9 @@
         <StackPanel Grid.Row="1">
             <Button Width="150" Style="{StaticResource ButtonStyle}" Click="Button_Click_1">Pizza Hozzáadása</Button>
         </StackPanel>
-        <StackPanel x:Name="STKPizzaList">
+        <ListView Grid.Row="2" x:Name="PizzaListView">
 
-        </StackPanel>
+        </ListView>
 
     </Grid>
 </Window>
