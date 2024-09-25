@@ -48,6 +48,6 @@
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Text="No account? Register!" Grid.Row="3" Grid.ColumnSpan="2" x:Name="txbNoAccRegister" MouseLeftButtonDown="NoAccRegister"/>
 
-        <Button Grid.ColumnSpan="2" Grid.Row="3" Content="Open Pizza Adding (temporary)" Click="btnOpenPizzaAdding" Margin="59,153,75,-151" Width="auto"/>
+        <Button Grid.ColumnSpan="2" Grid.Row="3" Content="Open Admin Panel (temporary)" Click="btnOpenPizzaAdding" Margin="59,153,75,-151" Width="auto"/>
     </Grid>
 </Window>
