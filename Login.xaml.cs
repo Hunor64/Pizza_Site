@@ -180,5 +180,14 @@ namespace Pizza_Site
             newPizzaAdding.ShowDialog();
         }
         #endregion
+
+        private void imglogo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BitmapImage im = new();
+            im.BeginInit();
+            im.UriSource = new Uri("/Pizza_Site;component/Logo/shhhh.png", UriKind.RelativeOrAbsolute);
+            im.EndInit();
+            imglogo.Source = im;
+        }
     }
 }
