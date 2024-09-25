@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d"
-        Title="Admin_Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Admin_Panel" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="WhiteSmoke" BorderThickness="2">
     <Window.Background>
         <ImageBrush ImageSource="./Logo/Wall.png"/>
     </Window.Background>
@@ -15,7 +15,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,-198,0,198" >
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="700,0,0,0" >
             <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
             <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
@@ -24,7 +24,7 @@
             <Button Width="150" Style="{StaticResource ButtonStyle}" Click="Button_Click_1">Pizza Hozzáadása</Button>
         </StackPanel>
         <StackPanel x:Name="STKPizzaList">
-            
+
         </StackPanel>
 
     </Grid>
