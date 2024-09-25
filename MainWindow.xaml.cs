@@ -114,7 +114,7 @@ namespace Pizza_Site
             Pizza selectedPizza = orderButton.Tag as Pizza;
             if (selectedPizza == null)
             {
-                MessageBox.Show("Nem sikerült a pizza kiválasztása.", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Failed to select pizza.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -126,7 +126,7 @@ namespace Pizza_Site
                 int quantity;
                 if (!int.TryParse(quantityTextBox.Text, out quantity) || quantity <= 0)
                 {
-                    MessageBox.Show("Érvényes mennyiséget adjon meg!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Please enter a valid quantity!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -144,7 +144,7 @@ namespace Pizza_Site
                         UnitPrice = selectedPizza.Price
                     };
                     cart.Add(cartItem);
-                    MessageBox.Show("Felvéve a kosába!");
+                    MessageBox.Show("Succesfully added to cart!");
 
                 }
 
@@ -198,14 +198,14 @@ namespace Pizza_Site
         {
             if (cart.Any())
             {
-                MessageBox.Show("Sikeres rendelés!", "Rendelés", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Succesfully ordered!", "Order", MessageBoxButton.OK, MessageBoxImage.Information);
                 cart.Clear();
                 CartItemCount.Text = "0";
                 UpdateTotalPrice();
             }
             else
             {
-                MessageBox.Show("A kosár üres!", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("The cart is empty!", "Alert", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -216,7 +216,7 @@ namespace Pizza_Site
             {
                 totalPrice += item.TotalPrice;
             }
-            TotalPriceTextBlock.Text = $"Összesen: {totalPrice} Ft";
+            TotalPriceTextBlock.Text = $"Total: {totalPrice} Ft";
         }
 
         #endregion

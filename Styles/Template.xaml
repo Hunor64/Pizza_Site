@@ -103,6 +103,7 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Height" Value="25"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
 
     </Style>
@@ -116,6 +117,7 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Height" Value="25"/>
 
     </Style>
     <!--#endregion-->
@@ -142,6 +144,36 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Foreground" Value="Black" />
+
+
+    </Style>
+    <!--#endregion-->
+
+    <!--#region IMAGE TEXTBOX STYLE -->
+
+    <Style TargetType="TextBox" x:Key="ImageTextBoxStyle">
+
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="MaxWidth" Value="80"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+    </Style>
+    <!--#endregion-->
+
+    <!--#region IMAGE COMBOBOX STYLE -->
+
+    <Style TargetType="ComboBox" x:Key="ImageComboboxStyle">
+
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="25"/>
         <Setter Property="Foreground" Value="Black" />
 
 
@@ -280,6 +312,41 @@
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="50"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+    </Style>
+    <!--#endregion-->
+
+    <!--#region SEND ORDER BUTTON STYLE -->
+
+    <Style TargetType="Button" x:Key="OrderFinishStyle">
+
+        <Setter Property="Foreground" Value="WhiteSmoke" />
+        <Setter Property="Background" Value="DimGray" />
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="WhiteSmoke" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGoldenrodYellow"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
 
     </Style>
     <!--#endregion-->
