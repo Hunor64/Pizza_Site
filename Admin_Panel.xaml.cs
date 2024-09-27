@@ -21,6 +21,7 @@ namespace Pizza_Site
         public Admin_Panel()
         {
             InitializeComponent();
+            LoadPizzaListFromDb();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,33 +51,27 @@ namespace Pizza_Site
         }
         #endregion
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AddNewPizza(object sender, RoutedEventArgs e)
         {
             PizzaAdding newPizzaAdding = new PizzaAdding();
             newPizzaAdding.ShowDialog();
         }
         public void LoadPizzaListFromDb()
         {
-            //Creating a new db context
             using (var newContext = new PizzaContext())
             {
-                //Creating an itemsource list to our grid and pushing the datas from the database to it
                 List<Pizza> pizzaList = new List<Pizza>();
 
-                //Creating a list from our PizzaDescription table
                 var pizzas = newContext.PizzasDescription.ToList();
 
-                //Giving values to the elements to our list 
                 foreach (var pizza in pizzas)
                 {
                     pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
                 }
+                lsbPizzaElemek.ItemsSource = pizzaList;
 
-
-                //Setting the main grid's itemsource to our appended list
-                PizzaListView.ItemsSource = pizzaList;
-                
             }
         }
+
     }
 }

@@ -17,17 +17,46 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="700,0,0,0" >
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
             <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
             <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="Button_Click_1">Pizza Hozzáadása</Button>
+            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="AddNewPizza">Pizza Hozzáadása</Button>
         </StackPanel>
-        <ListView Grid.Row="2" x:Name="PizzaListView">
+        <StackPanel Grid.Row="2" x:Name="MainPanel">
+            <ListView Name="lsbPizzaElemek"  ItemsSource="{Binding Pizzas}">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn Header="Pizza">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                        <Image Source="{Binding ImagePath}" Width="100" Height="100" Margin="5"/>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="17" Foreground="Salmon"/>
+                                            <TextBlock Text="{Binding Ingredients}" FontStyle="Italic" FontSize="13" Foreground="DarkSalmon"/>
+                                            <TextBlock Text="{Binding Price, StringFormat={}{0} Ft}" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="Salmon"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-        </ListView>
-
+                        <GridViewColumn Header="Mennyiség">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="50" Text="1" Margin="5"/>
+                                        <Button Content="Rendelés" Tag="{Binding}" Click="Button_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>

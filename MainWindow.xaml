@@ -28,13 +28,13 @@
 
         <!-- Custom title bar end -->
         <Grid Grid.Row="2">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <Grid>
-                    <StackPanel x:Name="MainPanel">
-                        <ListView Name="PizzaListView"  ItemsSource="{Binding Pizzas}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                <Grid >
+                    <StackPanel x:Name="MainPanel" >
+                        <ListView Name="PizzaListView"  ItemsSource="{Binding Pizzas}" >
                             <ListView.View>
                                 <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
-                                    <GridViewColumn Header="Pizza">
+                                    <GridViewColumn Header="Pizza" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal" Margin="5">
@@ -49,12 +49,12 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
 
-                                    <GridViewColumn Header="Mennyiség">
+                                    <GridViewColumn Header="Quantity" Width="180">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBox Width="50" Text="1" Margin="5"/>
-                                                    <Button Content="Rendelés" Tag="{Binding}" Click="OrderButton_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
+                                                    <Button Content="Add to cart" Tag="{Binding}" Click="OrderButton_Click" Width="90" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
                                                 </StackPanel>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
@@ -65,7 +65,7 @@
                     </StackPanel>
 
                     <StackPanel x:Name="CartPanel" Visibility="Collapsed">
-                        <Button Content="Vissza" Click="BackToMain_Click" Width="100" HorizontalAlignment="Left" />
+                        <Button Content="Back" Click="BackToMain_Click" Style="{DynamicResource AlternateButtonStyle}" HorizontalAlignment="Left"/>
                         <ListView Name="CartListView">
                             <ListView.View>
                                 <GridView>
@@ -76,18 +76,18 @@
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Mennyiség" Width="150">
+                                    <GridViewColumn Header="Quantity" Width="150">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBox Width="50" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" 
                                                      TextChanged="QuantityTextBox_TextChanged" Style="{DynamicResource QuantityTextBoxStyle}" />
-                                                    <Button Content="Törlés" Tag="{Binding}" Style="{DynamicResource DeleteButtonStyle}" Click="RemoveButton_Click" Margin="5" />
+                                                    <Button Content="Delete" Tag="{Binding}" Style="{DynamicResource DeleteButtonStyle}" Click="RemoveButton_Click" Margin="5" />
                                                 </StackPanel>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Ár" Width="110">
+                                    <GridViewColumn Header="Price" Width="110">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding TotalPrice, StringFormat={}{0} Ft}" FontWeight="Bold" Foreground="Green" FontSize="15"/>
@@ -98,7 +98,7 @@
                             </ListView.View>
                         </ListView>
                         <TextBlock Name="TotalPriceTextBlock" FontWeight="Bold" FontSize="16" Foreground="WhiteSmoke" HorizontalAlignment="Right" Margin="10"/>
-                        <Button Content="Rendelés véglegesítése" Click="FinalizeOrderButton_Click" Width="200" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"/>
+                        <Button Content="Finalize Order" Click="FinalizeOrderButton_Click"  Style="{DynamicResource OrderFinishStyle}"/>
                     </StackPanel>
                 </Grid>
             </ScrollViewer>

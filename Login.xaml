@@ -33,7 +33,7 @@
 
         <Image Source="/Pizza_Site;component/Logo/PizzastoreLogo.png"
             HorizontalAlignment="Left"
-            Width="266" Height="139" Margin="96,-145,0,36" Grid.ColumnSpan="2" x:Name="imglogo" MouseLeftButtonDown="imglogo_MouseLeftButtonDown"/>
+            Width="266" Height="139" Margin="96,-145,0,36" Grid.ColumnSpan="2" x:Name="imglogo" MouseLeftButtonDown="imglogo_MouseLeftButtonDown" MouseRightButtonDown="imglogo_MouseRightButtonDown"/>
         
         <!-- Custom title bar start -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,-139,0,149">

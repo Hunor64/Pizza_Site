@@ -51,7 +51,7 @@
                     <Grid x:Name="gridSelectedIngredients" />
 
                     <!-- ComboBox for ingredient selection -->
-                    <ComboBox x:Name="cbIngredients" SelectionChanged="cbIngredients_SelectionChanged" Width="120">
+                    <ComboBox x:Name="cbIngredients" SelectionChanged="cbIngredients_SelectionChanged" Style="{DynamicResource ComboboxStyle}">
                         <ComboBoxItem Content="Cheese"/>
                         <ComboBoxItem Content="Ham"/>
                         <ComboBoxItem Content="Salami"/>
@@ -64,9 +64,9 @@
                 <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtPrice" Style="{StaticResource TextBoxStyle}"/>
 
                 <TextBlock Grid.Column="0" Grid.Row="4" Text="Image:" Style="{StaticResource InputMarkerTextblockStyle}"/>
-                <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtImage" MinWidth="80" HorizontalAlignment="Left" Style="{StaticResource TextBoxStyle}"/>
+                <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtImage"  HorizontalAlignment="Left" Style="{StaticResource ImageTextBoxStyle}"/>
 
-                <ComboBox x:Name="cbExtensions"  Width="50" Height="25" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 10 0">
+                <ComboBox x:Name="cbExtensions" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Style="{DynamicResource ImageComboboxStyle}" >
                     <ComboBoxItem Content="Png"/>
                     <ComboBoxItem Content="Jpg"/>
                     <ComboBoxItem Content="Svg"/>
