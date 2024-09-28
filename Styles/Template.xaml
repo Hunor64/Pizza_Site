@@ -6,8 +6,8 @@
 
     <Style TargetType="Button" x:Key="CustomTitleButtonStyle">
 
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Background" Value="LightGoldenrodYellow" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="LightSlateGray" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Width" Value="30"/>
@@ -22,6 +22,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="AntiqueWhite"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <!--#endregion-->
 
