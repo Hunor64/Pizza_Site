@@ -69,7 +69,7 @@ namespace Pizza_Site
                     pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
                 }
                 lsbPizzaElemek.ItemsSource = pizzaList;
-
+                
             }
         }
 

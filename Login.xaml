@@ -37,7 +37,7 @@
         
         <!-- Custom title bar start -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,-139,0,149">
-            <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
+            <Button x:Name="btnMinimize" Content="_" Style="{StaticResource TitleBarButtonStyle}" Click="btnMinimize_Click"></Button>
             <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
