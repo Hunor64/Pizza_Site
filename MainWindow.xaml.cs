@@ -157,7 +157,7 @@ namespace Pizza_Site
             MainPanel.Visibility = Visibility.Collapsed;
             CartPanel.Visibility = Visibility.Visible;
             UpdateTotalPrice();
-            MessageBox.Show($"2: Username:{_userName},\nPassword:{_password},\nAdmin:{_isAdmin}");
+            //MessageBox.Show($"2: Username:{_userName},\nPassword:{_password},\nAdmin:{_isAdmin}");
         }
 
         private void BackToMain_Click(object sender, RoutedEventArgs e)

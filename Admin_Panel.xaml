@@ -23,7 +23,7 @@
             <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="AddNewPizza">Pizza Hozzáadása</Button>
+            <Button Width="150" Style="{StaticResource ButtonStyle}" Click="AddNewPizza">Add New Pizza</Button>
         </StackPanel>
         <StackPanel Grid.Row="2" x:Name="MainPanel">
             <ListView Name="lsbPizzaElemek"  ItemsSource="{Binding Pizzas}">
@@ -44,12 +44,12 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Mennyiség">
+                        <GridViewColumn Header="Quantity">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Width="50" Text="1" Margin="5"/>
-                                        <Button Content="Rendelés" Tag="{Binding}" Click="Button_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
+                                        <Button Content="Order" Tag="{Binding}" Click="Button_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
