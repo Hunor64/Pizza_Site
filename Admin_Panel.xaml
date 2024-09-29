@@ -26,37 +26,38 @@
             <Button Width="150" Style="{StaticResource ButtonStyle}" Click="AddNewPizza">Add New Pizza</Button>
         </StackPanel>
         <StackPanel Grid.Row="2" x:Name="MainPanel">
-            <ListView Name="lsbPizzaElemek"  ItemsSource="{Binding Pizzas}">
-                <ListView.View>
-                    <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Header="Pizza">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" Margin="5">
-                                        <Image Source="{Binding ImagePath}" Width="100" Height="100" Margin="5"/>
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="17" Foreground="Salmon"/>
-                                            <TextBlock Text="{Binding Ingredients}" FontStyle="Italic" FontSize="13" Foreground="DarkSalmon"/>
-                                            <TextBlock Text="{Binding Price, StringFormat={}{0} Ft}" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="Salmon"/>
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <ListView Name="lsbPizzaElemek"  ItemsSource="{Binding Pizzas}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
+                            <GridViewColumn Header="Pizza">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="5">
+                                            <Image Source="{Binding ImagePath}" Width="100" Height="100" Margin="5"/>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="17" Foreground="Salmon"/>
+                                                <TextBlock Text="{Binding Ingredients}" FontStyle="Italic" FontSize="13" Foreground="DarkSalmon"/>
+                                                <TextBlock Text="{Binding Price, StringFormat={}{0} Ft}" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="Salmon"/>
+                                            </StackPanel>
                                         </StackPanel>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                        <GridViewColumn Header="Quantity">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBox Width="50" Text="1" Margin="5"/>
-                                        <Button Content="Order" Tag="{Binding}" Click="Button_Click" Width="75" Margin="5" Style="{DynamicResource AlternateButtonStyle}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                            <GridViewColumn Header="Quantity">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBox Width="50" Text="1" Margin="5"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Window>
