@@ -189,10 +189,15 @@ namespace Pizza_Site
             if (cartItem != null && int.TryParse(textBox.Text, out int newQuantity) && newQuantity >= 0)
             {
                 cartItem.Quantity = newQuantity;
+
                 UpdateTotalPrice();
+
                 CartItemCount.Text = cart.Sum(item => item.Quantity).ToString();
+
+                CartListView.Items.Refresh();
             }
         }
+
 
         private void FinalizeOrderButton_Click(object sender, RoutedEventArgs e)
         {
