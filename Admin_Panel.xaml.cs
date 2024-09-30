@@ -6,27 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Pizza_Site
 {
     public partial class Admin_Panel : Window
     {
-        
         public Admin_Panel()
         {
             InitializeComponent();
             LoadPizzaListFromDb();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         #region Custom title bar clicks
@@ -34,6 +23,7 @@ namespace Pizza_Site
         {
             DragMove();
         }
+
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -45,6 +35,7 @@ namespace Pizza_Site
                 WindowState = WindowState.Normal;
             else WindowState = WindowState.Maximized;
         }
+
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -56,6 +47,7 @@ namespace Pizza_Site
             PizzaAdding newPizzaAdding = new PizzaAdding();
             newPizzaAdding.ShowDialog();
         }
+
         public void LoadPizzaListFromDb()
         {
             using (var newContext = new PizzaContext())
@@ -66,12 +58,24 @@ namespace Pizza_Site
 
                 foreach (var pizza in pizzas)
                 {
-                    pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price }); ;
+                    pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price });
                 }
+
                 lsbPizzaElemek.ItemsSource = pizzaList;
-                
             }
         }
 
+        // Edit gomb click esemény
+        private void EditPizza_Click(object sender, RoutedEventArgs e)
+        {
+            Button editButton = sender as Button;
+            Pizza selectedPizza = editButton.Tag as Pizza;
+
+            PizzaEditor editorWindow = new PizzaEditor(selectedPizza);
+            if (editorWindow.ShowDialog() == true)
+            {
+                LoadPizzaListFromDb(); // Frissítjük a listát, ha történt változtatás
+            }
+        }
     }
 }
