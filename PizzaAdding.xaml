@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pizza_Site"
         mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         ResizeMode="NoResize"
-        Title="PizzaAdding" Height="300" Width="300" WindowStartupLocation="CenterScreen" BorderBrush="WhiteSmoke" BorderThickness="2">
+        Title="PizzaAdding" Height="400" Width="350" WindowStartupLocation="CenterScreen" BorderBrush="WhiteSmoke" BorderThickness="2">
     <Window.Background>
         <ImageBrush ImageSource="./Logo/Wall.png"/>
     </Window.Background>

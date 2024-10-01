@@ -52,7 +52,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox Width="50" Text="1" Margin="5"/>
+                                    <TextBox Width="50" Text="1" Margin="5" Style="{DynamicResource QuantityTextBoxStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -61,7 +61,7 @@
                     <GridViewColumn Header="Actions" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" Width="80" Click="EditPizza_Click" Tag="{Binding}" />
+                                <Button Content="Edit" Width="80" Click="EditPizza_Click" Tag="{Binding}"  Style="{DynamicResource AlternateButtonStyle}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
