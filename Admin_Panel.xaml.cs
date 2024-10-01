@@ -83,5 +83,34 @@ namespace Pizza_Site
                 LoadPizzaListFromDb();
             }
         }
+
+        private void lsbPizzaElemek_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                var selectedPizza = lsbPizzaElemek.SelectedItem as Pizza;
+
+                if (selectedPizza != null)
+                {
+                    MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {selectedPizza.Name}?", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        using (var context = new PizzaContext())
+                        {
+                            var pizzaToDelete = context.PizzasDescription.FirstOrDefault(p => p.PizzaName == selectedPizza.Name);
+
+                            if (pizzaToDelete != null)
+                            {
+                                context.PizzasDescription.Remove(pizzaToDelete);
+                                context.SaveChanges();
+                            }
+                        }
+
+                        LoadPizzaListFromDb();
+                    }
+                }
+            }
+        }
     }
 }

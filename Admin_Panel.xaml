@@ -26,7 +26,11 @@
         <StackPanel Grid.Row="1">
             <Button Width="150" Style="{StaticResource ButtonStyle}" Click="AddNewPizza">Add New Pizza</Button>
         </StackPanel>
-        <ListView Name="lsbPizzaElemek" ItemsSource="{Binding Pizzas}" Grid.Row="2" VerticalAlignment="Stretch">
+        <ListView Name="lsbPizzaElemek" 
+          ItemsSource="{Binding Pizzas}" 
+          Grid.Row="2" 
+          VerticalAlignment="Stretch" 
+          KeyDown="lsbPizzaElemek_KeyDown">
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
                     <GridViewColumn Header="Pizza">
