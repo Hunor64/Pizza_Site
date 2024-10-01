@@ -1,28 +1,75 @@
 ﻿<Window x:Class="Pizza_Site.PizzaEditor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Edit Pizza" Height="350" Width="400"
-        WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="WhiteSmoke" BorderThickness="2">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pizza_Site"
+        mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        ResizeMode="NoResize"
+        Title="Edit Pizza" Height="300" Width="300" WindowStartupLocation="CenterScreen" BorderBrush="WhiteSmoke" BorderThickness="2">
     <Window.Background>
         <ImageBrush ImageSource="./Logo/Wall.png"/>
     </Window.Background>
+    
     <Grid>
-        <StackPanel Margin="10">
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
-                <Button x:Name="btnMinimize" Content="_" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
-                <Button x:Name="btnMaximize" Content="🗖" Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
-                <Button x:Name="btnClose" Content="X" Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
-            </StackPanel>
-            <TextBlock Text="Pizza Name" Style="{StaticResource InputMarkerTextblockStyle}" />
-            <TextBox x:Name="txtPizzaName" Style="{StaticResource TextBoxStyle}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
 
-            <TextBlock Text="Ingredients" Style="{StaticResource InputMarkerTextblockStyle}"/>
-            <TextBox x:Name="txtIngredients" Style="{StaticResource TextBoxStyle}"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1">
+            <Button x:Name="btnMinimize" Content="_"  Style="{StaticResource CustomTitleButtonStyle}" Click="btnMinimize_Click"></Button>
+            <Button x:Name="btnMaximize" Content="🗖"  Style="{StaticResource CustomTitleButtonStyle}" Click="btnMaximize_Click"></Button>
+            <Button x:Name="btnClose" Content="X"  Style="{StaticResource CustomTitleButtonStyle}" Click="btnClose_Click"></Button>
+        </StackPanel>
 
-            <TextBlock Text="Price" Style="{StaticResource InputMarkerTextblockStyle}"/>
-            <TextBox x:Name="txtPrice" Style="{StaticResource TextBoxStyle}"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
 
-            <Button Content="Save" Width="100" Margin="0,10,0,0" Click="Save_Click" Style="{StaticResource ButtonStyle}"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Pizza Name:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPizzaname" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Ingredients:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+                <StackPanel Grid.Column="1" Grid.Row="2">
+                    <Grid x:Name="gridSelectedIngredients" />
+
+                    <ComboBox x:Name="cbIngredients" SelectionChanged="cbIngredients_SelectionChanged" Style="{DynamicResource ComboboxStyle}">
+                        <ComboBoxItem Content="Cheese"/>
+                        <ComboBoxItem Content="Ham"/>
+                        <ComboBoxItem Content="Salami"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Price:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+                <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtPrice" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="Image:" Style="{StaticResource InputMarkerTextblockStyle}"/>
+                <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtImage"  HorizontalAlignment="Left" Style="{StaticResource ImageTextBoxStyle}"/>
+
+                <ComboBox x:Name="cbExtensions" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Style="{DynamicResource ImageComboboxStyle}">
+                    <ComboBoxItem Content="Png"/>
+                    <ComboBoxItem Content="Jpg"/>
+                    <ComboBoxItem Content="Svg"/>
+                </ComboBox>
+
+                <Button Style="{StaticResource ButtonStyle}" Grid.ColumnSpan="2" Grid.Row="5" Content="Save Pizza" Margin="0 10 0 0" Click="SavePizza_Click"/>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

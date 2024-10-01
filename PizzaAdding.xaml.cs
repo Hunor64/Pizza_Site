@@ -16,7 +16,7 @@ namespace Pizza_Site
         PizzaAddingService pizzaAddingService = new PizzaAddingService();
         bool addingSuccess;
         List<string> pizzas = new();
-        List<string> selectedIngredients = new(); // List to hold selected ingredients
+        List<string> selectedIngredients = new();
 
         public PizzaAdding()
         {
@@ -26,20 +26,17 @@ namespace Pizza_Site
 
         private void AddPizza_Click(object sender, RoutedEventArgs e)
         {
-            #region Pizza Variables
             string pizzaName = txtPizzaname.Text;
-            string ingredients = string.Join(", ", selectedIngredients); // Use selected ingredients from the Grid
+            string ingredients = string.Join(", ", selectedIngredients);
             string priceText = txtPrice.Text;
             string image = $"{txtImage.Text.ToLower()}.{cbExtensions.Text.ToLower()}";
-            #endregion
 
-            #region Pizza Validation
             if (string.IsNullOrEmpty(pizzaName))
             {
                 MessageBox.Show("Error: Not a valid pizza name!");
                 return;
             }
-            if (selectedIngredients.Count == 0) // Ensure at least one ingredient is selected
+            if (selectedIngredients.Count == 0)
             {
                 MessageBox.Show("Error: Don't leave ingredients field empty! ");
                 return;
@@ -54,10 +51,8 @@ namespace Pizza_Site
                 MessageBox.Show("Error: Don't leave Image field empty! ");
                 return;
             }
-            #endregion
 
             int price = int.Parse(txtPrice.Text);
-            #region Pizza adding
             string addingPizzaResult = pizzaAddingService.AddingPizza(pizzaName, ingredients, price, image);
 
             if (addingPizzaResult == "New pizza added!")
@@ -91,8 +86,6 @@ namespace Pizza_Site
             {
                 MessageBox.Show(addingPizzaResult);
             }
-            #endregion
-
         }
 
         private void cbIngredients_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -105,12 +98,11 @@ namespace Pizza_Site
                 {
                     selectedIngredients.Add(ingredient);
                     AddIngredientToGrid(ingredient);
-                    cbIngredients.Items.Remove(selectedItem); // Remove the selected item to prevent re-selection
+                    cbIngredients.Items.Remove(selectedItem);
                 }
             }
         }
 
-        // Function to add ingredient to the Grid
         private void AddIngredientToGrid(string ingredient)
         {
             TextBlock ingredientText = new TextBlock
@@ -128,18 +120,15 @@ namespace Pizza_Site
             gridSelectedIngredients.Children.Add(ingredientText);
         }
 
-        // Function to remove ingredient from the Grid and add it back to ComboBox
         private void RemoveIngredientFromGrid(string ingredient, TextBlock ingredientText)
         {
             selectedIngredients.Remove(ingredient);
             gridSelectedIngredients.Children.Remove(ingredientText);
 
-            // Add the ingredient back to ComboBox
             ComboBoxItem newItem = new ComboBoxItem { Content = ingredient };
             cbIngredients.Items.Add(newItem);
         }
 
-        #region Custom title bar clicks
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
@@ -168,6 +157,5 @@ namespace Pizza_Site
         {
             Close();
         }
-        #endregion
     }
 }

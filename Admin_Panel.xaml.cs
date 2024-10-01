@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -58,23 +56,31 @@ namespace Pizza_Site
 
                 foreach (var pizza in pizzas)
                 {
-                    pizzaList.Add(new Pizza { Name = pizza.PizzaName, ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}", Ingredients = pizza.Ingredients, Price = pizza.Price });
+                    pizzaList.Add(new Pizza
+                    {
+                        Name = pizza.PizzaName,
+                        ImagePath = $"pack://application:,,,/Pizza_Site;component/Images/{pizza.ImagePath.ToLower()}",
+                        Ingredients = pizza.Ingredients,
+                        Price = pizza.Price
+                    });
                 }
 
                 lsbPizzaElemek.ItemsSource = pizzaList;
             }
         }
 
-        // Edit gomb click esemény
         private void EditPizza_Click(object sender, RoutedEventArgs e)
         {
             Button editButton = sender as Button;
             Pizza selectedPizza = editButton.Tag as Pizza;
 
             PizzaEditor editorWindow = new PizzaEditor(selectedPizza);
-            if (editorWindow.ShowDialog() == true)
+
+            bool? result = editorWindow.ShowDialog();
+
+            if (result.HasValue)
             {
-                LoadPizzaListFromDb(); // Frissítjük a listát, ha történt változtatás
+                LoadPizzaListFromDb();
             }
         }
     }
