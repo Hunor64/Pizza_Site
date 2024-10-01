@@ -92,7 +92,7 @@ namespace Pizza_Site
 
                 if (selectedPizza != null)
                 {
-                    MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {selectedPizza.Name}?", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    MessageBoxResult result = MessageBox.Show($"Biztos ki akarod törölni a {selectedPizza.Name} pizzát??", "Törlés konfirmáció", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                     if (result == MessageBoxResult.Yes)
                     {
