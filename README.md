@@ -1,4 +1,4 @@
-# Pizza Weboldal
+#Semmi Csapat: Pizza Weboldal
 
 Csapattagok és Feladatok: <br />
 + Kiss Dániel: Rendelőfelület elkészítése <br />
