@@ -43,7 +43,13 @@ namespace Pizza_Site
         private void AddNewPizza(object sender, RoutedEventArgs e)
         {
             PizzaAdding newPizzaAdding = new PizzaAdding();
-            newPizzaAdding.ShowDialog();
+
+            bool? result = newPizzaAdding.ShowDialog();
+
+            if (result.HasValue)
+            {
+                LoadPizzaListFromDb();
+            }
         }
 
         public void LoadPizzaListFromDb()
